@@ -1,5 +1,8 @@
-site_name: deMartini_Francesco
+site_name: deMarini_Francesco
+
 nav:
-    - 'Test' : 'test.txt'
+
+     - 'Test': 'test.txt'
+
 theme:
-      name : readthedocs
+     name : readthedocs
