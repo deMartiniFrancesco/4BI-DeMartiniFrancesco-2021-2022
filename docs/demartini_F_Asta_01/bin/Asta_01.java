@@ -1,3 +1,5 @@
+package demartini_F_Asta_01.bin;
+
 import javax.swing.*;
 
 class Asta_01 {

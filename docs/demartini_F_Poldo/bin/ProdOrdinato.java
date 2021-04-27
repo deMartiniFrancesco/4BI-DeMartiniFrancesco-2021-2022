@@ -4,9 +4,40 @@ package demartini_F_Poldo.bin;/*
  * and open the template in the editor.
  */
 
-/** @author ldecarli */
+/**
+ *
+ * @author ldecarli
+ */
 public class ProdOrdinato {
-  private Prodotto p;
-  private int qta;
-  private int qtaservita;
+	private Prodotto prodotto;
+	private int quantita;
+	private int quantitaServita;
+
+	public ProdOrdinato(Prodotto prodotto, int quantita, int quantitaServita) {
+		this.prodotto = prodotto;
+		this.quantita = quantita;
+		this.quantitaServita = quantitaServita;
+	}
+
+
+	public Prodotto getProdotto() {
+		return prodotto;
+	}
+	public int getQuantita() {
+		return quantita;
+	}
+	public int getQuantitaServita() {
+		return quantitaServita;
+	}
+	
+
+	public String toString() {
+		return String.format(
+			"Prodotto -> %s\nQuantita -> %d\nQuantita servita -> %d", 
+			prodotto.toString(), 
+			quantita, 
+			quantitaServita
+		);
+	}
+
 }

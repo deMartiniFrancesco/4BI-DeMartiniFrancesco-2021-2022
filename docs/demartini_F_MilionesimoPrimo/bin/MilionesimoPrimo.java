@@ -1,3 +1,5 @@
+package demartini_F_MilionesimoPrimo.bin;
+
 class MilionesimoPrimo {
 
   public static boolean isPrimo(final int n) {

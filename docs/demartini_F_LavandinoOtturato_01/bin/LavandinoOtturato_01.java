@@ -1,3 +1,5 @@
+package demartini_F_LavandinoOtturato_01.bin;
+
 import javax.swing.*;
 
 class LavandinoOtturato_01 {

@@ -1,3 +1,5 @@
+package demartini_F_NumeriPrimi.bin;
+
 class NumeriPrimi {
   public static void main(String[] args) {
     int N = 10000;

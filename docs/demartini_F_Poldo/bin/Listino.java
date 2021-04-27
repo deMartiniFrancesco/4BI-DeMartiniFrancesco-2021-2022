@@ -4,71 +4,55 @@ package demartini_F_Poldo.bin;/*
  * and open the template in the editor.
  */
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
-/** @author ldecarli */
+/**
+ * @author ldecarli
+ */
 public class Listino {
-  private Prodotto[] lista;
-  private String[] menu;
-  private int index;
+	private ArrayList<Prodotto> menu;
 
-  public Listino() {
-    this.lista = new Prodotto[10];
-    this.menu = new String[3];
-    index = 0;
-  }
+	public Listino() {
+        menu = new ArrayList<>();
+	}
 
-  public void initMenu() {
-    Bevanda bevanda = new Bevanda();
-    Panino panino = new Panino();
-    Piatto piatto = new Piatto();
 
-    if (bevanda.getDisponibile()) {
-      menu[0] = bevanda.getDescr();
-    }
-    if (panino.getDisponibile()) {
-      menu[1] = panino.getDescr();
-    }
-    if (piatto.getDisponibile()) {
-      menu[2] = piatto.getDescr();
-    }
-  }
+	public void addProdotto(Prodotto prodotto) {
+        for (Prodotto prodottoMenu : menu) {
+            if(prodottoMenu.equals(prodotto.toString())){
+                return;
+            }
+        }
+		menu.add(prodotto);
+	}
 
-  public void addProdotto(Prodotto prodotto) {
-    if (!isFull()) {
-      lista[index] = prodotto;
-      index++;
-    } else {
-      Prodotto[] newLista = new Prodotto[lista.length + 10];
-      System.arraycopy(lista, 0, newLista, 0, lista.length);
-      setLista(newLista);
-    }
-  }
+	public void setMenu(ArrayList<Prodotto> menu) {
+		this.menu = menu;
+	}
 
-  public void setLista(Prodotto[] lista) {
-    this.lista = lista;
-  }
+	public ArrayList<Prodotto> getMenu() {
+        ArrayList<Prodotto> returnArray = menu;
+		return returnArray;
+	}
 
-  public String[] getMenu() {
-    return menu;
-  }
-
-  public void setMenu(String[] menu) {
-    this.menu = menu;
-  }
-
-  public String toString() {
-    return "lista=" + Arrays.toString(lista);
-  }
-
-  public boolean isFull() {
-    return index == lista.length;
-  }
+	public String toString() {
+        StringBuilder returnStringBuilder = new StringBuilder();
+        for (Prodotto prodotto : menu) {
+            returnStringBuilder.append(prodotto.getClass().getName() + prodotto.toString() + "\n\n");
+        }
+		return returnStringBuilder.toString();
+	}
 }
 
 class ListaProva {
-  public static void main(String[] args) {
-    Listino listino = new Listino();
-    System.out.println(listino);
-  }
+	public static void main(String[] args) {
+        Listino listino = new Listino();
+
+        listino.addProdotto(new Panino());
+        listino.addProdotto(new Piatto());
+        listino.addProdotto(new Bevanda());
+        listino.addProdotto(new Panino());
+
+        System.out.println(listino);
+	}
 }

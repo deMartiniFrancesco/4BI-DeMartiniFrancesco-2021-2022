@@ -1,3 +1,5 @@
+package demartini_F_Oggetto_Scuola.bin;
+
 import java.util.Date;
 
 public class Docente extends Persona {

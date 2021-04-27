@@ -1,3 +1,5 @@
+package demartini_F_Input.bin;
+
 import javax.swing.*;
 
 class Input {

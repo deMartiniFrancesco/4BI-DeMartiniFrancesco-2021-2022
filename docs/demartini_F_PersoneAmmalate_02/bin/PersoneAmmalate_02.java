@@ -1,3 +1,5 @@
+package demartini_F_PersoneAmmalate_02.bin;
+
 import javax.swing.*;
 
 class PersoneAmmalate_02 {

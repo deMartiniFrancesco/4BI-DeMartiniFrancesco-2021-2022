@@ -1,3 +1,5 @@
+package demartini_F_SerieNumerica_02.bin;
+
 import javax.swing.*;
 import java.util.ArrayList;
 

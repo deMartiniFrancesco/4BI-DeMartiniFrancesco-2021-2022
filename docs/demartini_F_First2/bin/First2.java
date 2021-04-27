@@ -1,3 +1,5 @@
+package demartini_F_First2.bin;
+
 import java.awt.*;
 
 class First2 {
