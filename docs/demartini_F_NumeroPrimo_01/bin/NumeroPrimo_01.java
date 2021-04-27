@@ -1,3 +1,6 @@
+package demartini_F_NumeroPrimo_01.bin;
+
+import javax.swing.*;
 
 class NumeroPrimo_01{
 
@@ -11,9 +14,6 @@ class NumeroPrimo_01{
         System.out.println("Start");
 
         int numero = Integer.parseInt(input("numero"));
-
-        while
-
 
 		System.out.println("End");
 
