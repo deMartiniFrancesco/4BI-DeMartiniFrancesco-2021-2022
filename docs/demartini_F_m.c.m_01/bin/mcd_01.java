@@ -2,7 +2,7 @@ package demartini_F_m.c.m_01.bin;
 
 import java.util.Scanner;
 
-class mcd_01 {
+class Main {
   public static int mcd(int a, int b) {
     int resto;
     while (b != 0) {
@@ -32,8 +32,8 @@ class mcd_01 {
     mcd = mcd(a, b);
     mcm = (a * b) / mcd;
 
-    System.out.println("il minimo comune denominatore é " + mcm);
-
+    System.out.println("il massimo comune divisore é " + mcd);
+    System.out.println("il minimo comune multiplo é " + mcm);
     scanner.close();
 
     System.out.println("End");
