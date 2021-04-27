@@ -1,14 +1,9 @@
+class Main {
+  public static void main(String[] args) {
+    System.out.print("Start");
 
-class Main 
-{
-	public static void main(String args[]) 
-	{ 
-		System.out.print("Start");
-		
-		System.out.print("Sequenza comandi");
-		
-		System.out.print("End"); 
-	} 
-} 
+    System.out.print("Sequenza comandi");
 
-
+    System.out.print("End");
+  }
+}

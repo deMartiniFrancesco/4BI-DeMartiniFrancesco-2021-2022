@@ -6,7 +6,7 @@ class NumeroPrimo_01{
         output = output.toLowerCase();
         return output;
 }
-    public static void main(String args[]){
+    public static void main(String[] args){
 
         System.out.println("Start");
 

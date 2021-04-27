@@ -1,22 +1,21 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 class QuanteCifre_01 {
 
-    public static String input(String imput) {
-        String output = JOptionPane.showInputDialog("inserire " + imput + ": ");
-        output = output.toLowerCase();
-        return output;
-    }
-    public static void main(String args[]){
+  public static String input(String imput) {
+    String output = JOptionPane.showInputDialog("inserire " + imput + ": ");
+    output = output.toLowerCase();
+    return output;
+  }
 
-        System.out.println("Start");
+  public static void main(String[] args) {
 
-        String cifra = input("cifra");
+    System.out.println("Start");
 
-		System.out.println("la cifra é lunga -> " + cifra.length());
+    String cifra = input("cifra");
 
+    System.out.println("la cifra é lunga -> " + cifra.length());
 
-		System.out.println("End");
-
-    }
+    System.out.println("End");
+  }
 }
