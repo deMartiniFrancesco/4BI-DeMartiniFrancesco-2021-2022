@@ -9,7 +9,7 @@ import java.util.HashMap;
 class CSV01 {
   public static ArrayList<String> sort(HashMap<String, Integer> nomi) {
 
-    ArrayList<String> sortNomi = new ArrayList<String>();
+    ArrayList<String> sortNomi = new ArrayList<>();
 
     for (String nome : nomi.keySet()) {
       sortNomi.add(nome);
