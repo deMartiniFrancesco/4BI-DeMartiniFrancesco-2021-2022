@@ -1,11 +1,9 @@
 site_name: deMartini_Francesco
 
-repo_url: https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2020-2021
+repo_url: https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022
 
 nav:
     - 'MD': 'README.md'
 
 theme:
     name: readthedocs
-
-nav:

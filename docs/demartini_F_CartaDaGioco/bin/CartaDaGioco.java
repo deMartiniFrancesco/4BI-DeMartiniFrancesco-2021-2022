@@ -75,9 +75,13 @@ class Mazzo {
         boolean exit = false;
         ArrayList<CartaDaGioco> mazzo = initMazzo(new ArrayList<CartaDaGioco>());
         String pause = "";
+        printMazzo(mazzo);
+        System.out.println();
 
         mazzo = shuffle(mazzo);
 
+        printMazzo(mazzo);
+        System.out.println();
         while (!exit) {
             mazzo = pesca(mazzo);
             pause = pauseScanner.nextLine().strip();
