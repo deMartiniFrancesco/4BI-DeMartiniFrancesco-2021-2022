@@ -1,6 +1,3 @@
-package demartini_F_NumeroPrimo_01.bin;
-
-import javax.swing.*;
 
 class NumeroPrimo_01{
 
@@ -9,11 +6,14 @@ class NumeroPrimo_01{
         output = output.toLowerCase();
         return output;
 }
-    public static void main(String[] args){
+    public static void main(String args[]){
 
         System.out.println("Start");
 
         int numero = Integer.parseInt(input("numero"));
+
+        while
+
 
 		System.out.println("End");
 

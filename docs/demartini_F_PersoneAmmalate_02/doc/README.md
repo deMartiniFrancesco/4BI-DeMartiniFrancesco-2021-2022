@@ -2,7 +2,4 @@
 ---
 
 ## Consegna
-
-Dato un numero intero che rappresenta un numero di ammalati e un numero intero che rappresenta la percentuale di
-ammalati che ogni giorno guarisce, calcolare quanti giorni sono necessari affinchï¿½ il numero di ammalati sia minore di
-100.
+Dato un numero intero che rappresenta un numero di ammalati e un numero intero che rappresenta la percentuale di ammalati che ogni giorno guarisce, calcolare quanti giorni sono necessari affinché il numero di ammalati sia minore di 100.

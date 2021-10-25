@@ -2,5 +2,4 @@
 ---
 
 ## Consegna
-
 Dati due numeri naturali (diversi da zero) trovare il loro minimo comune multiplo.

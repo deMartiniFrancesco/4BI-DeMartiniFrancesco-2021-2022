@@ -1,4 +1,4 @@
-package demartini_F_Poldo.bin;/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -32,12 +32,9 @@ public class Panino extends Prodotto {
     }
 
     public String toString() {
-        return super.toString() + '\n' + "Igredienti -> '" + igredienti + '\n' + "Caldo -> " + caldo;
-    }
-    
-    @Override
-    public boolean equals(Object obj) {
-        return toString().equals(obj.toString());
+        return "Igredienti='" + igredienti + '\n' +
+                "Caldo=" + caldo +
+                super.toString();
     }
 }
 

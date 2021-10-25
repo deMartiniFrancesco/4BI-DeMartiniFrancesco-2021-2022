@@ -2,5 +2,4 @@
 ---
 
 ## Consegna
-
-Verificare se un numero passato dallï¿½utente ï¿½ primo.
+Verificare se un numero passato dall’utente è primo.

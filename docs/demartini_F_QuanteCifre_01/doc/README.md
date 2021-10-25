@@ -2,5 +2,4 @@
 ---
 
 ## Consegna
-
-Dopo aver fatto inserire un numero naturale il programma restituisce in output da quante cifre ï¿½ composto il numero.
+ Dopo aver fatto inserire un numero naturale il programma restituisce in output da quante cifre è composto il numero.

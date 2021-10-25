@@ -2,6 +2,4 @@
 ---
 
 ## Consegna
-
-Mario ï¿½ uno studente che ha una quantitï¿½ di soldi stabilita dallï¿½utente, ogni giorno Mario allï¿½intervallo puï¿½ acquistare
-al bar della scuola una pastina che costa 1 euro o un panino che costa 1,5 euro.
+Mario è uno studente che ha una quantità di soldi stabilita dall’utente, ogni giorno Mario all’intervallo può acquistare al bar della scuola una pastina che costa 1 euro o un panino che costa 1,5 euro.

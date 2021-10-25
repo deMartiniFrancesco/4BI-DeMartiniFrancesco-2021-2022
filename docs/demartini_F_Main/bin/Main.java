@@ -1,12 +1,14 @@
-package demartini_F_Main.bin;
 
-class Main {
+class Main 
+{
+	public static void main(String args[]) 
+	{ 
+		System.out.print("Start");
+		
+		System.out.print("Sequenza comandi");
+		
+		System.out.print("End"); 
+	} 
+} 
 
-  public static void main(String[] args) {
-    System.out.println("Start");
 
-    System.out.println("Sequenza comandi");
-
-    System.out.println("End");
-  }
-}

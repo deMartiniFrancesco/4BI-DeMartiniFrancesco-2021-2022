@@ -1,58 +1,76 @@
-package demartini_F_Poldo.bin;/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author ldecarli
  */
 public class Listino {
-	private ArrayList<Prodotto> menu;
+    private Prodotto[] lista;
+    private String[] menu;
+    private int index;
 
-	public Listino() {
-        menu = new ArrayList<>();
-	}
+    public Listino() {
+        this.lista = new Prodotto[10];
+        this.menu = new String[3];
+        index = 0;
+    }
 
+    public void initMenu() {
+        Bevanda bevanda = new Bevanda();
+        Panino panino = new Panino();
+        Piatto piatto = new Piatto();
 
-	public void addProdotto(Prodotto prodotto) {
-        for (Prodotto prodottoMenu : menu) {
-            if(prodottoMenu.equals(prodotto.toString())){
-                return;
-            }
+        if (bevanda.getDisponibile()) {
+            menu[0] = bevanda.getDescr();
         }
-		menu.add(prodotto);
-	}
-
-	public void setMenu(ArrayList<Prodotto> menu) {
-		this.menu = menu;
-	}
-
-	public ArrayList<Prodotto> getMenu() {
-        ArrayList<Prodotto> returnArray = menu;
-		return returnArray;
-	}
-
-	public String toString() {
-        StringBuilder returnStringBuilder = new StringBuilder();
-        for (Prodotto prodotto : menu) {
-            returnStringBuilder.append(prodotto.getClass().getName() + prodotto.toString() + "\n\n");
+        if (panino.getDisponibile()) {
+            menu[1] = panino.getDescr();
         }
-		return returnStringBuilder.toString();
-	}
+        if (piatto.getDisponibile()) {
+            menu[2] = piatto.getDescr();
+        }
+    }
+
+    public void addProdotto( Prodotto prodotto) {
+        if (!isFull()) {
+            lista[index] = prodotto;
+            index++;
+        } else {
+            Prodotto[] newLista = new Prodotto[lista.length + 10];
+            System.arraycopy(lista, 0, newLista, 0, lista.length);
+            setLista(newLista);
+        }
+    }
+
+    public void setLista(Prodotto[] lista) {
+        this.lista = lista;
+    }
+
+    public void setMenu(String[] menu) {
+        this.menu = menu;
+    }
+
+    public String[] getMenu() {
+        return menu;
+    }
+
+    public String toString() {
+        return "lista=" + Arrays.toString(lista);
+    }
+
+    public boolean isFull() {
+        return index == lista.length;
+    }
 }
 
 class ListaProva {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         Listino listino = new Listino();
-
-        listino.addProdotto(new Panino());
-        listino.addProdotto(new Piatto());
-        listino.addProdotto(new Bevanda());
-        listino.addProdotto(new Panino());
-
         System.out.println(listino);
-	}
+    }
 }
