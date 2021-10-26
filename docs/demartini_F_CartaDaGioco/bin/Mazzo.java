@@ -1,14 +1,64 @@
+import java.util.*;
+
 /**
  * Mazzo
  * @author Francesco de' Martini
  */
-class Mazzo {
+public class Mazzo {
+    private ArrayList<CartaDaGioco> mazzo = new ArrayList<>();
+    private int nMazzi = 1, lenSetSeme = 13;
+    private int nJolly = nMazzi * 2;
+    private int nCarte = (lenSetSeme * 4) * nMazzi + nJolly;
 
-    static int nMazzi = 1, lenSetSeme = 13;
-    static int nJolly = nMazzi * 2;
-    static int nCarte = (lenSetSeme * 4) * nMazzi + nJolly;
+    public Mazzo() {
+        initMazzo();
+    }
 
-    public static CartaDaGioco vince(CartaDaGioco carta1, CartaDaGioco carta2) {
+    public Mazzo(ArrayList<CartaDaGioco> mazzo) {
+        this.mazzo = mazzo;
+    }
+
+    public ArrayList<CartaDaGioco> getMazzo() {
+        return mazzo;
+    }
+
+    public void setMazzo(ArrayList<CartaDaGioco> mazzo) {
+        this.mazzo = mazzo;
+    }
+
+    public int getnMazzi() {
+        return nMazzi;
+    }
+
+    public void setnMazzi(int nMazzi) {
+        this.nMazzi = nMazzi;
+    }
+
+    public int getLenSetSeme() {
+        return lenSetSeme;
+    }
+
+    public void setLenSetSeme(int lenSetSeme) {
+        this.lenSetSeme = lenSetSeme;
+    }
+
+    public int getnJolly() {
+        return nJolly;
+    }
+
+    public void setnJolly(int nJolly) {
+        this.nJolly = nJolly;
+    }
+
+    public int getnCarte() {
+        return nCarte;
+    }
+
+    public void setnCarte(int nCarte) {
+        this.nCarte = nCarte;
+    }
+
+    public CartaDaGioco vince(CartaDaGioco carta1, CartaDaGioco carta2) {
         CartaDaGioco cartaVincente;
 
         int valoreCarta1 = carta1.getValore(), semeCarta1 = carta1.getSeme(),
@@ -31,7 +81,7 @@ class Mazzo {
         return cartaVincente;
     }
 
-    public static ArrayList<CartaDaGioco> pesca(ArrayList<CartaDaGioco> mazzo) {
+    public void pesca() {
         if (mazzo.size() > 0) {
             CartaDaGioco carta = mazzo.get(0);
             System.out.println(carta.toString());
@@ -40,15 +90,13 @@ class Mazzo {
         } else {
             System.out.println("Fine mazzo");
         }
-        return mazzo;
     }
 
-    public static ArrayList<CartaDaGioco> shuffle(ArrayList<CartaDaGioco> mazzo) {
+    public void shuffle() {
         Collections.shuffle(mazzo);
-        return mazzo;
     }
 
-    public static ArrayList<CartaDaGioco> initMazzo(ArrayList<CartaDaGioco> mazzo) {
+    public void initMazzo() {
 
         for (int i = 0; i < nCarte - nJolly; i++) {
             mazzo.add(new CartaDaGioco(i / lenSetSeme, (i % lenSetSeme) + 1));
@@ -56,14 +104,14 @@ class Mazzo {
         for (int i = 0; i < nJolly; i++) {
             mazzo.add(new CartaDaGioco(4, 0));
         }
-        return mazzo;
     }
 
-    public static void printMazzo(ArrayList<CartaDaGioco> mazzo) {
+    public String toString() {
+        String returnedString = new String();
         for (int i = 0; i < mazzo.size(); i++) {
-            System.out.print(mazzo.get(i).toString() + "\n");
-
+            returnedString += (mazzo.get(i).toString() + "\n");
         }
+        return returnedString;
     }
 
 }
@@ -76,18 +124,19 @@ class Test {
         System.out.println("Start");
         Scanner pauseScanner = new Scanner(System.in);
         boolean exit = false;
-        ArrayList<CartaDaGioco> mazzo = initMazzo(new ArrayList<CartaDaGioco>());
+        Mazzo mazzo = new Mazzo();
         String pause = "";
-        printMazzo(mazzo);
+        System.out.println(mazzo);
         System.out.println();
 
-        mazzo = shuffle(mazzo);
+        mazzo.shuffle();
 
-        printMazzo(mazzo);
+        System.out.println(mazzo);
         System.out.println();
         while (!exit) {
-            mazzo = pesca(mazzo);
-            pause = pauseScanner.nextLine().strip();
+            mazzo.pesca();
+            pause = pauseScanner.nextLine().trim();
+            System.out.printf("'%s'", pause);
             if (pause != "") {
                 exit = true;
             }
