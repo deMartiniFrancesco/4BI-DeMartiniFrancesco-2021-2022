@@ -125,7 +125,7 @@ class Test {
         Scanner pauseScanner = new Scanner(System.in);
         boolean exit = false;
         Mazzo mazzo = new Mazzo();
-        String pause = "";
+        String pause;
         System.out.println(mazzo);
         System.out.println();
 
