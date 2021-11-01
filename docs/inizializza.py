@@ -2,6 +2,8 @@
 __autor__ = "Francesco"
 __version__ = "0101 2020/10/12"
 
+
+# TODO modificare scrittura README encoding sbagliata
 import time
 import os
 
@@ -51,7 +53,7 @@ if __name__ == "__main__":
     counterCapolinea = 1
     print("inserire consegna progetto: ")
     while (counterCapolinea < 3):
-        
+
         inputConsegna = input()
         consegna += inputConsegna + "\n"
 
@@ -59,17 +61,14 @@ if __name__ == "__main__":
 
         if inputConsegna == "":
             counterCapolinea += 1
-        else: 
+        else:
             counterCapolinea = 1
 
     # print(consegna)
 
-
-
-
     # Variabili
     intestazione_java = 'package demartini_F_' + nomeProgetto + '.bin;\n\n\
-    class ' + nomeProgetto + '{\n\
+class ' + nomeProgetto + '{\n\
     public static void main(String[] args){\n\n\
         System.out.println("Start");\n\n\
         System.out.println("Hello, World");\n\n\
@@ -81,10 +80,11 @@ if __name__ == "__main__":
 ---\n\n\
 ## Consegna\n\n" + consegna + "\n"
 
-    # Output
-    esiste, perBin, perDoc = cartelle(nomeProgetto)
-    creaFile(perBin, perDoc, intestazione_java, intestazione_md)
-    print(esiste)
 
-    if boold:
-        print("End")
+# Output
+esiste, perBin, perDoc = cartelle(nomeProgetto)
+creaFile(perBin, perDoc, intestazione_java, intestazione_md)
+print(esiste)
+
+if boold:
+    print("End")
