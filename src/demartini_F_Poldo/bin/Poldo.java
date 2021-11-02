@@ -1,3 +1,5 @@
+package demartini_F_Poldo.bin;
+
 import java.util.Scanner;
 
 class Poldo {

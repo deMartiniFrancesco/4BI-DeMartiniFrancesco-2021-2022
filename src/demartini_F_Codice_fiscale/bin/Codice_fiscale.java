@@ -31,7 +31,7 @@ class Codice_fiscale {
     }
 
     public static String data(String str, String sesso) {
-        String[] vetStringDate = str.split("/\\ ");
+        String[] vetStringDate = str.split("/ ");
         String vetMesi = "ABCDEHLMPRST";
         int i = 0;
 

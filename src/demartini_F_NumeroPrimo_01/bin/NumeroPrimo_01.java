@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 class NumeroPrimo_01 {
 
     public static String input(String imput) {
@@ -11,8 +13,6 @@ class NumeroPrimo_01 {
         System.out.println("Start");
 
         int numero = Integer.parseInt(input("numero"));
-
-        while
 
 
         System.out.println("End");

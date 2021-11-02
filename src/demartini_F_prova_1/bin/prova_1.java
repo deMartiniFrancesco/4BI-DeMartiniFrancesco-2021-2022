@@ -1,3 +1,5 @@
+package demartini_F_prova_1.bin;
+
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;

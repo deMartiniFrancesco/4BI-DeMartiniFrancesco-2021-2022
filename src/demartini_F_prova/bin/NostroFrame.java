@@ -1,3 +1,5 @@
+package demartini_F_prova.bin;
+
 import javax.swing.*;
 
 public class NostroFrame extends JFrame { // Creiamo una sottoclasse di Jframe

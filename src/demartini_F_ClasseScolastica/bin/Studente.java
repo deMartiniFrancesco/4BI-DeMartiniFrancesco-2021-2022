@@ -1,3 +1,5 @@
+package demartini_F_ClasseScolastica.bin;
+
 public class Studente {
     private static int id;
     private int numeroMatricola;

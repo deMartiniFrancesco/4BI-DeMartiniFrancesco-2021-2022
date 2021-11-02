@@ -1,3 +1,5 @@
+package demartini_F_ClasseScolastica.bin;
+
 import java.util.ArrayList;
 
 public class ClasseScolastica {

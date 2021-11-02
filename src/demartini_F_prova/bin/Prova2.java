@@ -1,3 +1,5 @@
+package demartini_F_prova.bin;
+
 import java.util.Scanner;
 
 class Prova2 {

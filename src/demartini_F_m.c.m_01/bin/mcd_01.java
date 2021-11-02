@@ -1,3 +1,5 @@
+package demartini_F_m.c.m_01.bin;
+
 import java.util.Scanner;
 
 class mcd_01 {

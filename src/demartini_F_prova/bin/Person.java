@@ -1,4 +1,4 @@
-// Class Declaration
+package demartini_F_prova.bin;// Class Declaration
 
 public class Person {
     // Instance Variables

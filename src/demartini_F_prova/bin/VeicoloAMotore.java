@@ -1,3 +1,5 @@
+package demartini_F_prova.bin;
+
 public abstract class VeicoloAMotore {
     public int marcia;
     public int serbatoio;
