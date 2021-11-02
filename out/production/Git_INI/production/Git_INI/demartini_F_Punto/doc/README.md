@@ -10,7 +10,7 @@ Scrivere una classe che rappresenti un Punto sul piano cartesiano. Oltre ai meto
 
 - un metodo che determini la distanza tra due punti;
 
-- un metodo public Punto piuVicinoO(Punto p) che restituisca il punto pi� vicino all'origine.
+- un metodo public Punto piuVicinoO(Punto p) che restituisca il punto piú vicino all'origine.
 
 Implementare la classe PuntoTest che crea due istante di classe Punto, le visualizza a video e calcola la distanza tra i due punti.
 

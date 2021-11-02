@@ -11,7 +11,8 @@ public class CartaDaGioco {
 
     private int seme;
     private int valore;
-    private String[] semi = { "cuori", "fiori", "quadri", "picche", "*" };
+    private boolean coperta;
+    private final String[] semi = { "cuori", "fiori", "quadri", "picche", "*" };
 
     /**
      * Costruttore No parametri
@@ -19,6 +20,7 @@ public class CartaDaGioco {
     public CartaDaGioco() {
         this.seme = 0;
         this.valore = 0;
+        this.coperta = false;
     }
 
     /**
@@ -26,9 +28,10 @@ public class CartaDaGioco {
      * 
      * @param seme   int con il seme della carta
      * @param valore Intero con il valore della carta
+     * @param coperta Boolean definisce se la carta é scoperta
      */
-    public CartaDaGioco(int seme, int valore) {
-        set(seme, valore);
+    public CartaDaGioco(int seme, int valore, boolean coperta) {
+        set(seme, valore, coperta);
     }
 
     /**
@@ -37,9 +40,10 @@ public class CartaDaGioco {
      * @param seme   int con il seme della carta
      * @param valore Intero con il valore della carta
      */
-    public void set(int seme, int valore) {
+    public void set(int seme, int valore, boolean coperta) {
         setSeme(seme);
         setValore(valore);
+        setCoperta(coperta);
     }
 
     /**
@@ -78,15 +82,19 @@ public class CartaDaGioco {
         return this.valore;
     }
 
+    public boolean isCoperta() {
+        return coperta;
+    }
+
+    public void setCoperta(boolean coperta) {
+        this.coperta = coperta;
+    }
+
     /**
      * @return Ritorna una stringa con il valore del seme e del velore della carta
      */
     public String toString() {
-        String output;
-
-        output = semi[this.seme] + "->" + this.valore;
-
-        return output;
+        return (coperta)? "|◘|": semi[this.seme] + "->" + this.valore;
     }
 
     public int carcolaPunteggio() {
@@ -96,11 +104,7 @@ public class CartaDaGioco {
         if (this.seme == 4) {
             punteggio = 25;
         } else {
-            if (valore > 10) {
-                punteggio = 10;
-            } else {
-                punteggio = valore;
-            }
+            punteggio = Math.min(valore, 10);
         }
         return punteggio;
     }

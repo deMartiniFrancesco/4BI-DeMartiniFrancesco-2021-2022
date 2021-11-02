@@ -2,6 +2,7 @@ import java.util.*;
 
 /**
  * Mazzo
+ *
  * @author Francesco de' Martini
  */
 public class Mazzo {
@@ -99,19 +100,19 @@ public class Mazzo {
     public void initMazzo() {
 
         for (int i = 0; i < nCarte - nJolly; i++) {
-            mazzo.add(new CartaDaGioco(i / lenSetSeme, (i % lenSetSeme) + 1));
+            mazzo.add(new CartaDaGioco(i / lenSetSeme, (i % lenSetSeme) + 1, false));
         }
         for (int i = 0; i < nJolly; i++) {
-            mazzo.add(new CartaDaGioco(4, 0));
+            mazzo.add(new CartaDaGioco(4, 0, false));
         }
     }
 
     public String toString() {
-        String returnedString = new String();
-        for (int i = 0; i < mazzo.size(); i++) {
-            returnedString += (mazzo.get(i).toString() + "\n");
+        StringBuilder returnedString = new StringBuilder();
+        for (CartaDaGioco cartaDaGioco : mazzo) {
+            returnedString.append(cartaDaGioco.toString()).append("\n");
         }
-        return returnedString;
+        return returnedString.toString();
     }
 
 }
@@ -119,7 +120,7 @@ public class Mazzo {
 
 class Test {
 
-	public static void main(String args[]) {
+    public static void main(String[] args) {
 
         System.out.println("Start");
         Scanner pauseScanner = new Scanner(System.in);
@@ -132,12 +133,12 @@ class Test {
         mazzo.shuffle();
 
         System.out.println(mazzo);
-        System.out.println();
+        pause = pauseScanner.nextLine().trim();
         while (!exit) {
             mazzo.pesca();
-            pause = pauseScanner.nextLine().trim();
-            System.out.printf("'%s'", pause);
-            if (pause != "") {
+
+            pause = pauseScanner.nextLine();
+            if (!pause.equals("")) {
                 exit = true;
             }
         }

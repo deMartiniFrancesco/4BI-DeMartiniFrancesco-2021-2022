@@ -14,7 +14,7 @@ public class UsaDado {
         int sotto10 = 0;
         int nFacceSopra10 = 0;
         while (!exit) {
-            Dado dado = new Dado(new Random().nextInt(6, 21), new Random().nextBoolean());
+            Dado dado = new Dado(new Random().nextInt(15) + 6, new Random().nextBoolean());
 
             System.out.println(dado);
             int lancio = dado.lancio();
