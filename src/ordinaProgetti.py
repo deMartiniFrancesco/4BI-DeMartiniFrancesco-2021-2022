@@ -21,14 +21,14 @@ if __name__== "__main__":
 
     vettFile = glob.glob('*.java')
     for f in vettFile:
-        intestazione_md = "# Program name: " + f + "\n\
+        headerMd = "# Program name: " + f + "\n\
 ---\n\n\
 ## Consegna\n _________________"
-        nomeProgetto = (f.split("."))[0]
-        esiste,perBin,perDoc = cartelle(nomeProgetto)
+        projectName = (f.split("."))[0]
+        exist,perBin,perDoc = cartelle(projectName)
 
         filejava = open(perDoc+"//README.md","w")
-        filejava.write(intestazione_md)
+        filejava.write(headerMd)
         filejava.close()
 
 
@@ -37,7 +37,7 @@ if __name__== "__main__":
         vRighe = fjava.readlines()
         fjava.close()
 
-        vRighe.append("package " + "demartini_F_" + nomeProgetto + ".bin;\n\n\n")
+        vRighe.append("package " + "demartini_F_" + projectName + ".bin;\n\n\n")
         vRighe = rotate(vRighe,-1)
 
         fjava = open(f,"w")
