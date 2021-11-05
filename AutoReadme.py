@@ -32,13 +32,13 @@ projectsMD = """
 def lastProjectString(dirUpdated):
 	string = "| null | null |\n"
 	if(dirUpdated != ""):
-		head, tail = os.path.split(dirUpdated)
+		top, end = os.path.split(dirUpdated)
 		string = "| " + \
-			"[" + tail + "]" + \
-			"(" + srcGitDirectory + tail + "/bin)" + \
+			"[" + end + "]" + \
+			"(" + srcGitDirectory + "/" + end + "/bin)" + \
 			" | " + \
 			"[ReadMe]" + \
-			"(" + srcGitDirectory + tail + readmePath + ")" + \
+			"(" + srcGitDirectory + "/" + end + readmePath + ")" + \
 			" |" + \
 			"\n"
 	return string
@@ -46,15 +46,16 @@ def lastProjectString(dirUpdated):
 
 def projectsString(srcDirectory, dirProjectName):
 	string = ""
-	for dir in os.listdir(srcDirectory):
-		if dir.startswith(dirProjectName):
+	for directory in os.listdir(srcDirectory):
+		top, end = os.path.split(directory)
+		if end.startswith(dirProjectName):
 			string += \
 				"| " + \
-				"[" + dir + "]" + \
-				"(" + srcGitDirectory + srcDirectory + dir + "/bin)" + \
+				"[" + end + "]" + \
+				"(" + srcGitDirectory + "/" + end + "/bin)" + \
 				" | " + \
 				"[ReadMe]" + \
-				"(" + srcGitDirectory + srcDirectory + dir + readmePath + ")" + \
+				"(" + srcGitDirectory + "/" + end + readmePath + ")" + \
 				" |" + \
 				"\n"
 		else:
