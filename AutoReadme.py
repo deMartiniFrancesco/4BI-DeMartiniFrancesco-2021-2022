@@ -54,7 +54,7 @@ def projectsString(srcDirectory, dirProjectName):
 
 		if directory.startswith(dirProjectName):
 			string += "| " + \
-				"[" + tail + "]" + \
+				"[" + directory + "]" + \
 				"(" + srcGitDirectory + "/" + srcName + "/" + directory + "/bin)" + \
 				" | " + \
 				"[ReadMe]" + \
