@@ -3,6 +3,7 @@ __autor__ = "Francesco"
 __version__ = "0101 2021/11/04"
 
 import os
+from pathlib import Path
 
 head, tail = os.path.split(__file__)
 os.chdir(head)
@@ -33,12 +34,14 @@ def lastProjectString(dirUpdated):
 	string = "| null | null |\n"
 	if(dirUpdated != ""):
 		top, end = os.path.split(dirUpdated)
+		src = Path(dirUpdated).resolve().parts
+		srcName = src[len(src)-2]
 		string = "| " + \
 			"[" + end + "]" + \
-			"(" + srcGitDirectory + "/" + end + "/bin)" + \
+			"(" + srcGitDirectory + "/" + srcName + "/" + end + "/bin)" + \
 			" | " + \
 			"[ReadMe]" + \
-			"(" + srcGitDirectory + "/" + end + readmePath + ")" + \
+			"(" + srcGitDirectory + "/" + srcName + "/" + end + readmePath + ")" + \
 			" |" + \
 			"\n"
 	return string
@@ -47,15 +50,15 @@ def lastProjectString(dirUpdated):
 def projectsString(srcDirectory, dirProjectName):
 	string = ""
 	for directory in os.listdir(srcDirectory):
-		top, end = os.path.split(directory)
-		if end.startswith(dirProjectName):
-			string += \
-				"| " + \
-				"[" + end + "]" + \
-				"(" + srcGitDirectory + "/" + end + "/bin)" + \
+		srcName = Path(srcDirectory).resolve().name
+
+		if directory.startswith(dirProjectName):
+			string += "| " + \
+				"[" + tail + "]" + \
+				"(" + srcGitDirectory + "/" + srcName + "/" + directory + "/bin)" + \
 				" | " + \
 				"[ReadMe]" + \
-				"(" + srcGitDirectory + "/" + end + readmePath + ")" + \
+				"(" + srcGitDirectory + "/" + srcName + "/" + directory + readmePath + ")" + \
 				" |" + \
 				"\n"
 		else:
@@ -90,7 +93,7 @@ if __name__ == "__main__":
 	if boold:
 		print("Start")
 
-		updateMD(head + "/src/", "demartini_F_", "")
+		updateMD(head + "/src/", "demartini_F_", "C://Users//frenk//Documents//School//INI//DeMartiniFrancesco-4BI-2021-2022//src//demartini_F_prova_2")
 
 	if boold:
 		print("End")
