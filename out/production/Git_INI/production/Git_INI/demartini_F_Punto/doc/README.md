@@ -4,7 +4,8 @@
 
 ## Consegna
 
-Scrivere una classe che rappresenti un Punto sul piano cartesiano. Oltre ai metodi che permettono di impostare e leggere le coordinate di un punto, scrivere
+Scrivere una classe che rappresenti un Punto sul piano cartesiano. Oltre ai metodi che permettono di impostare e leggere
+le coordinate di un punto, scrivere
 
 - un metodo che calcoli la distanza del punto dall'origine ;
 
@@ -12,7 +13,8 @@ Scrivere una classe che rappresenti un Punto sul piano cartesiano. Oltre ai meto
 
 - un metodo public Punto piuVicinoO(Punto p) che restituisca il punto piú vicino all'origine.
 
-Implementare la classe PuntoTest che crea due istante di classe Punto, le visualizza a video e calcola la distanza tra i due punti.
+Implementare la classe PuntoTest che crea due istante di classe Punto, le visualizza a video e calcola la distanza tra i
+due punti.
 
 
 

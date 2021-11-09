@@ -2,23 +2,45 @@
 __autor__ = "Francesco"
 __version__ = "0101 2020/10/12"
 
-
 # TODO modificare scrittura README encoding sbagliata
-import time
+
+
+import importlib
 import os
+import sys
+from pathlib import Path
+
+
+exist = False
+percorso, tail = os.path.split(__file__)
+os.chdir(percorso)
+
 
 # CONSTANTI
 nomeCartella = "demartini_F_"
 
 
-def cartelle(nomeProgetto):
-    esiste = False
-    head, tail = os.path.split(__file__)
-    os.chdir(head)
-    percorso = os.getcwd()
-    cartella = percorso + "//" + nomeCartella + nomeProgetto
+def import_parents(level):
+    global __package__
+    file = Path(__file__).resolve()
+    parent, top = file.parent, file.parents[level]
 
+    sys.path.append(str(top))
+    try:
+        sys.path.remove(str(parent))
+    except ValueError:  # already removed
+        pass
+
+    __package__ = '.'.join(parent.parts[len(top.parts):])
+    importlib.import_module(__package__)  # won't be needed after that
+
+
+def cartelle(nomeProgetto):
+
+    cartella = percorso + "//" + nomeCartella + nomeProgetto
     esiste = os.path.isdir(cartella)
+    perBin = ""
+    perDoc = ""
 
     if esiste == False:
         os.makedirs(cartella)
@@ -31,69 +53,81 @@ def cartelle(nomeProgetto):
 
     else:
         esiste = "Progetto già esistente"
-    return (esiste, perBin, perDoc)
+    return (esiste, perBin, perDoc, cartella)
 
 
 def creaFile(perBin, perDoc, intJava, intRead):
-    filejava = open(perBin + "//" + nomeProgetto + ".java", "w")
-    filejava.write(intJava)
-    filejava.close()
+    try:
+        filejava = open(perBin + "//" + projectName + ".java", "w")
+        filejava.write(intJava)
+        filejava.close()
 
-    filejava = open(perDoc + "//README.md", "w")
-    filejava.write(intRead)
-    filejava.close()
-    return ()
+        filejava = open(perDoc + "//README.md", "w")
+        filejava.write(intRead)
+        filejava.close()
+    except IOError:
+        return False
+    return True
 
 
 boold = True
-if __name__ == "__main__":
+if __name__ == '__main__' and __package__ is None:
+    import_parents(level=2)
+    from .. import AutoReadme
+
     if boold:
         print("Start")
 
     # INPUT
-    nomeProgetto = input("inserire nome progetto: ")
+    projectName = input("inserire nome progetto: ")
     consegna = ""
     counterCapolinea = 1
+
     print("inserire consegna progetto: ")
     while (counterCapolinea < 3):
 
         inputConsegna = input()
         consegna += inputConsegna + "\n"
 
-        # print(f"{counterCapolinea}  '{inputConsegna}'")
-
         if inputConsegna == "":
             counterCapolinea += 1
         else:
             counterCapolinea = 1
 
-    # print(consegna)
-
     # VARIABILI
 
     # Java
-    intestazione_java = 'package ' + nomeCartella + nomeProgetto + '.bin;\n\n\
-class ' + nomeProgetto + '{\n\n\
-    public ' + nomeProgetto + '(){\n\n\
-    }\n\
-}\n\
-class ' + nomeProgetto + 'Test{\n\
-    public static void main(String[] args){\n\n\
-        System.out.println("Start");\n\n\
-        System.out.println("Hello, World");\n\n\
-		System.out.println("End");\n\n\
-    }\n\
-}'
+    headerJava = \
+        'package ' + nomeCartella + projectName + '.bin;\n\n' + \
+        'class ' + projectName + '{\n\n' + \
+        '\tpublic ' + projectName + '(){\n\n' + \
+        '\t}\n' + \
+        '}\n' + \
+        'class ' + projectName + 'Test{\n' + \
+        '\tpublic static void main(String[] args){\n\n' + \
+        '\tSystem.out.println("Start");\n\n' + \
+        '\tSystem.out.println("Hello, World");\n\n' + \
+        '\tSystem.out.println("End");\n\n' + \
+        '\t}\n' + \
+        '}'
+
     # Readme
-    intestazione_md = "# Program name: " + nomeProgetto + ".java\n\n\
----\n\n\
-## Consegna\n\n" + consegna + "\n"
+    headerMd = \
+        "# Program name: " + projectName + ".java\n\n" + \
+        "---\n\n" + \
+        "## Consegna\n\n" + consegna.rstrip() + "\n"
 
+    # OUTPUT
+    exist, perBin, perDoc, dirUpdated = cartelle(projectName)
 
-# OUTPUT
-esiste, perBin, perDoc = cartelle(nomeProgetto)
-creaFile(perBin, perDoc, intestazione_java, intestazione_md)
-print(esiste)
+    if (not exist):
+        creation = creaFile(perBin, perDoc, headerJava, headerMd)
+        if (creation):
+            AutoReadme.updateMD(percorso, nomeCartella, dirUpdated)
+        else:
+            print("Erroe on write files")
+    else:
+        print(exist)
 
-if boold:
-    print("End")
+    if boold:
+        print("End")

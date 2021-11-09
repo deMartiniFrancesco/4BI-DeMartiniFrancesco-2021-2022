@@ -4,9 +4,10 @@
 
 ## Consegna
 
-Definire la classe Dado. Un dado è caratterizzato dal numero di facce (minimo 6) e dal fatto che sia truccato o non truccato. 
-Si implementi il metodo lancia(), che restituisce: un numero casuale se il dado non è truccato, il numero 3 se il dado è truccato.
-Realizzare
+Definire la classe Dado. Un dado ï¿½ caratterizzato dal numero di facce (minimo 6) e dal fatto che sia truccato o non
+truccato. Si implementi il metodo lancia(), che restituisce: un numero casuale se il dado non ï¿½ truccato, il numero 3 se
+il dado ï¿½ truccato. Realizzare
+
 - UML della classe
 - classe Dado
 - classe UsaDado (che genera oggetti di classe Dado e li lancia, stampando il risultato dei lanci)
