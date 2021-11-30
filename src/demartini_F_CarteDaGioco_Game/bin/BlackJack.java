@@ -1,8 +1,9 @@
 package demartini_F_CarteDaGioco_Game.bin;
 
-import org.springframework.util.ClassUtils;
-
 import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 /**
@@ -57,37 +58,50 @@ public class BlackJack {
 
         System.out.println("Start");
 
+        //                CALCOLO PATH RELATIVO UNIVERSALE
+        //----------------------------------------------------------------------
+        String tempPath = new File(
+                String.valueOf(BlackJack.class.getPackage()).replace("package ", "").replace(".", "/")
+        ).getParent();
+        File uesrPath = new File(System.getProperty("user.dir"));
+        String projectPath = uesrPath.getName().equals(tempPath) ?
+                uesrPath.getPath() :
+                new File(uesrPath.getPath() + "/src").exists() ?
+                        uesrPath.getPath() + "/src/" + tempPath :
+                        uesrPath.getPath() + tempPath;
+        //----------------------------------------------------------------------
+
 
         // COSTANTI
-        String resursesPath = "../file";
-        String rulesPatah = "/rules.txt";
-//        resursesPath = Objects.requireNonNull(BlackJack.class.getResource(resursesPath)).toString();
+        String resursesPath = "/file/";
+        String rulesName = "rules.txt";
 
-        System.out.println(System.getProperty("user.dir") + "/" + ClassUtils.convertClassNameToResourcePath(String.valueOf(BlackJack.class.getPackage())));
+        confirmDialog("Benvenuto in BlackJack", "BlackJack");
+
+        if (!choseDialog("Conosci giá le regle?", "BlackJack")) {
+            // show REGOLE
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(projectPath + resursesPath + rulesName));
+                String currentLine = reader.readLine();
+                while (currentLine != null) {
+                    confirmDialog(currentLine, "RULES");
+                    currentLine = reader.readLine();
+                }
+
+                reader.close();
+            } catch (IOException e) {
+                System.err.println(e);
+            }
+        }
+
+        Dealer dealer = new Dealer();
+
+        Player player = new Player(100);
 
 
-//        confirmDialog("Benvenuto in BlackJack", "BlackJack");
-//
-//        if (!choseDialog("Conosci giá le regle?", "BlackJack")) {
-//            // show REGOLE
-//            try {
-//                BufferedReader reader = new BufferedReader(new FileReader(resursesPath + rulesPatah));
-//                String currentLine = reader.readLine();
-//                System.out.println(currentLine);
-//                reader.close();
-//            }catch (IOException e){
-//                System.err.println(e);
-//            }
-//        }
+        player.setPuntata(numberInput("inserire punata"));
 
-//        Dealer dealer = new Dealer();
-//
-//        Player player = new Player(100);
-//
-//
-//        player.setPuntata(numberInput("inserire punata"));
-//
-//        System.out.println(player);
+        System.out.println(player);
 
         System.out.println("End");
 

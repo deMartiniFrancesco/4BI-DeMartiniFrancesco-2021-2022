@@ -106,6 +106,19 @@ if __name__ == '__main__' and __package__ is None:
         'class ' + projectName + 'Test{\n' + \
         '\tpublic static void main(String[] args){\n\n' + \
         '\tSystem.out.println("Start");\n\n' + \
+        '\t//\t\tCALCOLO PATH RELATIVO UNIVERSALE\n' + \
+        '\t//----------------------------------------------------------------------\n' + \
+        '\tString tempPath = new File(\n' + \
+        '\t\tString.valueOf(BlackJack.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
+        '\t).getParent();\n' + \
+        '\tFile uesrPath = new File(System.getProperty("user.dir"));\n' + \
+        '\tString projectPath = uesrPath.getName().equals(tempPath) ?\n' + \
+        '\t\tuesrPath.getPath() :\n' + \
+        '\t\tnew File(uesrPath.getPath() + "/src").exists() ?\n' + \
+        '\t\t\tuesrPath.getPath() + "/src/" + tempPath :\n' + \
+        '\t\t\tuesrPath.getPath() + tempPath;\n' + \
+        '\t//----------------------------------------------------------------------\n' + \
+        '\n' + \
         '\tSystem.out.println("Hello, World");\n\n' + \
         '\tSystem.out.println("End");\n\n' + \
         '\t}\n' + \
