@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,9 +19,26 @@ public class Scuola {
     }
 
     public static void main(String[] args) {
-        String file = "demartini_F_Oggetto_Scuola\\file\\elenco.csv";
 
-        Scuola scuola = new Scuola(file);
+        //                CALCOLO PATH RELATIVO UNIVERSALE
+        //----------------------------------------------------------------------
+        String tempPath = new File(
+                String.valueOf(Scuola.class.getPackage()).replace("package ", "").replace(".", "/")
+        ).getParent();
+        File uesrPath = new File(System.getProperty("user.dir"));
+        String projectPath = uesrPath.getName().equals(tempPath) ?
+                uesrPath.getPath() :
+                new File(uesrPath.getPath() + "/src").exists() ?
+                        uesrPath.getPath() + "/src/" + tempPath :
+                        uesrPath.getPath() + tempPath;
+        //----------------------------------------------------------------------
+
+
+        // COSTANTI
+        String resursesPath = "/file/";
+        String elenco = "elenco.csv";
+
+        Scuola scuola = new Scuola(projectPath + resursesPath + elenco);
 
         System.out.println(scuola);
         for (Persona persona : scuola.getDocenti()) {
@@ -119,14 +133,14 @@ public class Scuola {
 
     public String toString() {
 
-        String stringa = "";
+        StringBuilder stringa = new StringBuilder();
         for (Persona persona : vect) {
             if (persona != null) {
-                stringa += persona + "\n";
+                stringa.append(persona).append("\n");
             }
         }
 
-        return stringa;
+        return stringa.toString();
     }
 
     void fromFile(String fn) {
@@ -135,6 +149,7 @@ public class Scuola {
         size = 0;
         BufferedReader bw;
         try {
+            System.out.println(fn);
             bw = new BufferedReader(new FileReader(fn));
             String linea;
             linea = bw.readLine();
@@ -162,8 +177,6 @@ public class Scuola {
                 }
             }
             bw.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Scuola.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Scuola.class.getName()).log(Level.SEVERE, null, ex);
         }
