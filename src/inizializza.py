@@ -10,7 +10,6 @@ import os
 import sys
 from pathlib import Path
 
-
 exist = False
 percorso, tail = os.path.split(__file__)
 os.chdir(percorso)
@@ -41,6 +40,7 @@ def cartelle(nomeProgetto):
     esiste = os.path.isdir(cartella)
     perBin = ""
     perDoc = ""
+    perFile = ""
 
     if esiste == False:
         os.makedirs(cartella)
@@ -51,14 +51,17 @@ def cartelle(nomeProgetto):
         perDoc = cartella + "//" + "doc"
         os.makedirs(perDoc)
 
+        perFile = cartella + "//" + "file"
+        os.makedirs(perFile)
+
     else:
         esiste = "Progetto già esistente"
-    return (esiste, perBin, perDoc, cartella)
+    return (esiste, perBin, perDoc, perFile, cartella)
 
 
 def creaFile(perBin, perDoc, intJava, intRead):
     try:
-        filejava = open(perBin + "//" + projectName + ".java", "w")
+        filejava = open(perBin + "//" + projectClassName + ".java", "w")
         filejava.write(intJava)
         filejava.close()
 
@@ -96,20 +99,25 @@ if __name__ == '__main__' and __package__ is None:
 
     # VARIABILI
 
+    projectClassName = projectName[0].upper() + projectName[1 :] 
+
     # Java
     headerJava = \
         'package ' + nomeCartella + projectName + '.bin;\n\n' + \
-        'class ' + projectName + '{\n\n' + \
-        '\tpublic ' + projectName + '(){\n\n' + \
+        'import java.io.File;\n' + \
+        '\n' + \
+        'class ' + projectClassName + '{\n\n' + \
+        '\tpublic ' + projectClassName + '(){\n\n' + \
         '\t}\n' + \
         '}\n' + \
-        'class ' + projectName + 'Test{\n' + \
+        '\n' + \
+        'class ' + projectClassName + 'Test{\n' + \
         '\tpublic static void main(String[] args){\n\n' + \
         '\tSystem.out.println("Start");\n\n' + \
         '\t//\t\tCALCOLO PATH RELATIVO UNIVERSALE\n' + \
         '\t//----------------------------------------------------------------------\n' + \
         '\tString tempPath = new File(\n' + \
-        '\t\tString.valueOf(BlackJack.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
+        '\t\tString.valueOf(' + projectClassName + '.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
         '\t).getParent();\n' + \
         '\tFile uesrPath = new File(System.getProperty("user.dir"));\n' + \
         '\tString projectPath = uesrPath.getName().equals(tempPath) ?\n' + \
@@ -119,6 +127,9 @@ if __name__ == '__main__' and __package__ is None:
         '\t\t\tuesrPath.getPath() + tempPath;\n' + \
         '\t//----------------------------------------------------------------------\n' + \
         '\n' + \
+        '\t// COSTANTI\n' + \
+        '\tString resursesPath = "/file/";\n' + \
+        '\n' + \
         '\tSystem.out.println("Hello, World");\n\n' + \
         '\tSystem.out.println("End");\n\n' + \
         '\t}\n' + \
@@ -126,12 +137,12 @@ if __name__ == '__main__' and __package__ is None:
 
     # Readme
     headerMd = \
-        "# Program name: " + projectName + ".java\n\n" + \
+        "# Program name: " + projectClassName + ".java\n\n" + \
         "---\n\n" + \
         "## Consegna\n\n" + consegna.rstrip() + "\n"
 
     # OUTPUT
-    exist, perBin, perDoc, dirUpdated = cartelle(projectName)
+    exist, perBin, perDoc, perFile, dirUpdated = cartelle(projectName)
 
     if (not exist):
         creation = creaFile(perBin, perDoc, headerJava, headerMd)
