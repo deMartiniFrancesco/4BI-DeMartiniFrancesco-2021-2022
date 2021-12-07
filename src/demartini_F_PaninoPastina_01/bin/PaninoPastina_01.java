@@ -1,3 +1,5 @@
+package demartini_F_PaninoPastina_01.bin;
+
 import javax.swing.*;
 
 class PaninoPastina_01 {

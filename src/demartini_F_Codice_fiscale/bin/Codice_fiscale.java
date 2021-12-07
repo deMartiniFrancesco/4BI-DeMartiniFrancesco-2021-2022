@@ -1,3 +1,5 @@
+package demartini_F_Codice_fiscale.bin;
+
 import javax.swing.*;
 
 class Codice_fiscale {

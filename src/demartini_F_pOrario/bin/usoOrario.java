@@ -1,3 +1,5 @@
+package demartini_F_pOrario.bin;
+
 public class usoOrario {
     public static void main(String[] args) {
         Orario ora01;

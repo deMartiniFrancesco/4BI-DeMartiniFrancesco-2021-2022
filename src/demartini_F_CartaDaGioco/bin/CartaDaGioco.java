@@ -1,3 +1,5 @@
+package demartini_F_CartaDaGioco.bin;
+
 /**
  * CartaDaGioco
  *

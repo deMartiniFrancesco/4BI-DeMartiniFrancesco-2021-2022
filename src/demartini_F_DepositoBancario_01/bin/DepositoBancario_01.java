@@ -1,3 +1,5 @@
+package demartini_F_DepositoBancario_01.bin;
+
 import javax.swing.*;
 
 class DepositoBancario_01 {

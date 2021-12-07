@@ -1,3 +1,5 @@
+package demartini_F_Alghe_01.bin;
+
 import javax.swing.*;
 
 class Alghe_01 {

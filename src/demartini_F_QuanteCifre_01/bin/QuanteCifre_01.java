@@ -1,3 +1,5 @@
+package demartini_F_QuanteCifre_01.bin;
+
 import javax.swing.*;
 
 class QuanteCifre_01 {

@@ -3,37 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Git_INI.iml" filepath="$PROJECT_DIR$/Git_INI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Alghe_01/demartini_F_Alghe_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_Alghe_01/demartini_F_Alghe_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Asta_01/demartini_F_Asta_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_Asta_01/demartini_F_Asta_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Asta_02/demartini_F_Asta_02.iml" filepath="$PROJECT_DIR$/src/demartini_F_Asta_02/demartini_F_Asta_02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_CSV01/demartini_F_CSV01.iml" filepath="$PROJECT_DIR$/src/demartini_F_CSV01/demartini_F_CSV01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_CartaDaGioco/demartini_F_CartaDaGioco.iml" filepath="$PROJECT_DIR$/src/demartini_F_CartaDaGioco/demartini_F_CartaDaGioco.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Classe_Punto/demartini_F_Classe_Punto.iml" filepath="$PROJECT_DIR$/src/demartini_F_Classe_Punto/demartini_F_Classe_Punto.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_CodiceFiscale/demartini_F_CodiceFiscale.iml" filepath="$PROJECT_DIR$/src/demartini_F_CodiceFiscale/demartini_F_CodiceFiscale.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Codice_fiscale/demartini_F_Codice_fiscale.iml" filepath="$PROJECT_DIR$/src/demartini_F_Codice_fiscale/demartini_F_Codice_fiscale.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Data_01/demartini_F_Data_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_Data_01/demartini_F_Data_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_DepositoBancario_01/demartini_F_DepositoBancario_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_DepositoBancario_01/demartini_F_DepositoBancario_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_First2/demartini_F_First2.iml" filepath="$PROJECT_DIR$/src/demartini_F_First2/demartini_F_First2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Input/demartini_F_Input.iml" filepath="$PROJECT_DIR$/src/demartini_F_Input/demartini_F_Input.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_LavandinoOtturato_01/demartini_F_LavandinoOtturato_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_LavandinoOtturato_01/demartini_F_LavandinoOtturato_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Main/demartini_F_Main.iml" filepath="$PROJECT_DIR$/src/demartini_F_Main/demartini_F_Main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Mat01/demartini_F_Mat01.iml" filepath="$PROJECT_DIR$/src/demartini_F_Mat01/demartini_F_Mat01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_MilionesimoPrimo/demartini_F_MilionesimoPrimo.iml" filepath="$PROJECT_DIR$/src/demartini_F_MilionesimoPrimo/demartini_F_MilionesimoPrimo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_MilionesimoPrimo_erat/demartini_F_MilionesimoPrimo_erat.iml" filepath="$PROJECT_DIR$/src/demartini_F_MilionesimoPrimo_erat/demartini_F_MilionesimoPrimo_erat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_NumeriPrimi/demartini_F_NumeriPrimi.iml" filepath="$PROJECT_DIR$/src/demartini_F_NumeriPrimi/demartini_F_NumeriPrimi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_NumeroPrimo_01/demartini_F_NumeroPrimo_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_NumeroPrimo_01/demartini_F_NumeroPrimo_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Oggetto_Scuola/demartini_F_Oggetto_Scuola.iml" filepath="$PROJECT_DIR$/src/demartini_F_Oggetto_Scuola/demartini_F_Oggetto_Scuola.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_PaninoPastina_01/demartini_F_PaninoPastina_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_PaninoPastina_01/demartini_F_PaninoPastina_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Password/demartini_F_Password.iml" filepath="$PROJECT_DIR$/src/demartini_F_Password/demartini_F_Password.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_PersoneAmmalate_02/demartini_F_PersoneAmmalate_02.iml" filepath="$PROJECT_DIR$/src/demartini_F_PersoneAmmalate_02/demartini_F_PersoneAmmalate_02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_PosizioneCifra_01/demartini_F_PosizioneCifra_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_PosizioneCifra_01/demartini_F_PosizioneCifra_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_QuanteCifre_01/demartini_F_QuanteCifre_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_QuanteCifre_01/demartini_F_QuanteCifre_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_SerieNumeri_01/demartini_F_SerieNumeri_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_SerieNumeri_01/demartini_F_SerieNumeri_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_SerieNumerica_01/demartini_F_SerieNumerica_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_SerieNumerica_01/demartini_F_SerieNumerica_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_SerieNumerica_02/demartini_F_SerieNumerica_02.iml" filepath="$PROJECT_DIR$/src/demartini_F_SerieNumerica_02/demartini_F_SerieNumerica_02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_Vettori/demartini_F_Vettori.iml" filepath="$PROJECT_DIR$/src/demartini_F_Vettori/demartini_F_Vettori.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_m.c.m_01/demartini_F_m.c.m_01.iml" filepath="$PROJECT_DIR$/src/demartini_F_m.c.m_01/demartini_F_m.c.m_01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/demartini_F_pOrario/demartini_F_pOrario.iml" filepath="$PROJECT_DIR$/src/demartini_F_pOrario/demartini_F_pOrario.iml" />
     </modules>
   </component>
 </project>

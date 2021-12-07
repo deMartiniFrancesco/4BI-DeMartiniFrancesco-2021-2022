@@ -1,3 +1,5 @@
+package demartini_F_PosizioneCifra_01.bin;
+
 import javax.swing.*;
 
 class PosizioneCifra_01 {

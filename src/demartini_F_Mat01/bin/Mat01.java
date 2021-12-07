@@ -1,3 +1,5 @@
+package demartini_F_Mat01.bin;
+
 import java.util.Random;
 
 public class Mat01 {

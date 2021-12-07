@@ -1,3 +1,5 @@
+package demartini_F_pOrario.bin;
+
 public class Orario {
     int or;
     int mi;

@@ -1,3 +1,5 @@
+package demartini_F_MilionesimoPrimo_erat.bin;
+
 class MilionesimoPrimo_erat {
 
     public static void main(String[] args) {

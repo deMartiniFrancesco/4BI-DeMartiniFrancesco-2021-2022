@@ -1,3 +1,5 @@
+package demartini_F_NumeroPrimo_01.bin;
+
 import javax.swing.*;
 
 class NumeroPrimo_01 {

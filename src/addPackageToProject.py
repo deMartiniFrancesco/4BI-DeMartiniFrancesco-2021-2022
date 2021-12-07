@@ -20,32 +20,24 @@ if __name__ == '__main__':
 
 	for dir in projectListDir:
 		if isdir(dir) and dir.startswith("demartini"):
-			package = "package " + dir + ".bin;\n\n"
+			package = "package " + dir + ".bin;\n"
 			dir += "/bin/"
 			if isdir(dir):
 				for javaFilePath in os.listdir(dir):
 					javaFilePath = dir + javaFilePath
 					if isfile(javaFilePath) and javaFilePath.endswith(".java"):
-						print(javaFilePath)
+						
 
 						javaFile = open(javaFilePath, "r",)
 						listLines = javaFile.readlines()
 						javaFile.close()
 
 						if(package not in listLines):
-							listLines.insert(0, package)
+							print(javaFilePath)
+							listLines.insert(0, package + "\n")
 							javaFile = open(javaFilePath, "w",)
 							listLines = javaFile.writelines(listLines)
 							javaFile.close()
-
-						
-						
-
-						
-
-
-
-
 	
 	if boold:
 		print("End")

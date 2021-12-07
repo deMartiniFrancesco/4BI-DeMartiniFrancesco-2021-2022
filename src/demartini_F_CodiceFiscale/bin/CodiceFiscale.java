@@ -1,3 +1,5 @@
+package demartini_F_CodiceFiscale.bin;
+
 import javax.swing.*;
 
 public class CodiceFiscale {

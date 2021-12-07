@@ -1,3 +1,5 @@
+package demartini_F_Oggetto_Scuola.bin;
+
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;

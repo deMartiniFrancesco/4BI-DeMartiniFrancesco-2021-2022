@@ -1,3 +1,5 @@
+package demartini_F_SerieNumerica_01.bin;
+
 import javax.swing.*;
 
 class SerieNumerica_01 {

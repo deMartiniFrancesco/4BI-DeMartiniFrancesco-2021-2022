@@ -1,3 +1,5 @@
+package demartini_F_Password.bin;
+
 import java.util.Scanner;
 
 public class Password {
