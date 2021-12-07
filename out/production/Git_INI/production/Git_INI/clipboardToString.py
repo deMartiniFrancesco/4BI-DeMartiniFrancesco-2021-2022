@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
 
     elif(functionStr == "2"):
-
+        # TODO finire funzione 2 (formattazione stringa data in input)
         
         for i in range(len(clipBoard)):
             if(clipBoard[i].find("\n\n") > -1):
