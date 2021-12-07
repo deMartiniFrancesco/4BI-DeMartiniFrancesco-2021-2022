@@ -107,37 +107,37 @@ if __name__ == '__main__' and __package__ is None:
         '\n' + \
         'import java.io.File;\n' + \
         '\n' + \
-        'class ' + projectClassName + '{\n' + \
+        'class ' + projectClassName + ' {\n' + \
         '\n' + \
-        '\tpublic ' + projectClassName + '(){\n' + \
+        '\tpublic ' + projectClassName + '() {\n' + \
         '\n' + \
         '\t}\n' + \
         '}\n' + \
         '\n' + \
-        'class ' + projectClassName + 'Test{\n' + \
-        '\tpublic static void main(String[] args){\n' + \
+        'class ' + projectClassName + 'Test {\n' + \
+        '\tpublic static void main(String[] args) {\n' + \
         '\n' + \
-        '\tSystem.out.println("Start");\n' + \
+        '\t\tSystem.out.println("Start");\n' + \
         '\n' + \
-        '\t//\t\tCALCOLO PATH RELATIVO UNIVERSALE\n' + \
-        '\t//----------------------------------------------------------------------\n' + \
-        '\tString tempPath = new File(\n' + \
-        '\t\tString.valueOf(' + projectClassName + '.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
-        '\t).getParent();\n' + \
-        '\tFile uesrPath = new File(System.getProperty("user.dir"));\n' + \
-        '\tString projectPath = uesrPath.getName().equals(tempPath) ?\n' + \
-        '\t\tuesrPath.getPath() :\n' + \
-        '\t\tnew File(uesrPath.getPath() + "/src").exists() ?\n' + \
-        '\t\t\tuesrPath.getPath() + "/src/" + tempPath :\n' + \
-        '\t\t\tuesrPath.getPath() + tempPath;\n' + \
-        '\t//----------------------------------------------------------------------\n' + \
+        '\t\t//\t\tCALCOLO PATH RELATIVO UNIVERSALE\n' + \
+        '\t\t//----------------------------------------------------------------------\n' + \
+        '\t\tString tempPath = new File(\n' + \
+        '\t\t\tString.valueOf(' + projectClassName + '.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
+        '\t\t).getParent();\n' + \
+        '\t\tFile uesrPath = new File(System.getProperty("user.dir"));\n' + \
+        '\t\tString projectPath = uesrPath.getName().equals(tempPath) ?\n' + \
+        '\t\t\tuesrPath.getPath() :\n' + \
+        '\t\t\tnew File(uesrPath.getPath() + "/src").exists() ?\n' + \
+        '\t\t\t\tuesrPath.getPath() + "/src/" + tempPath :\n' + \
+        '\t\t\t\tuesrPath.getPath() + tempPath;\n' + \
+        '\t\t//----------------------------------------------------------------------\n' + \
         '\n' + \
-        '\t// COSTANTI\n' + \
-        '\tString resursesPath = "/file/";\n' + \
+        '\t\t// COSTANTI\n' + \
+        '\t\tString resursesPath = "/file/";\n' + \
         '\n' + \
-        '\tSystem.out.println("Hello, World");\n' + \
+        '\t\tSystem.out.println("Hello, World");\n' + \
         '\n' + \
-        '\tSystem.out.println("End");\n' + \
+        '\t\tSystem.out.println("End");\n' + \
         '\n' + \
         '\t}\n' + \
         '}'
