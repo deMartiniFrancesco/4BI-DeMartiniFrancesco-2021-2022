@@ -103,17 +103,22 @@ if __name__ == '__main__' and __package__ is None:
 
     # Java
     headerJava = \
-        'package ' + nomeCartella + projectName + '.bin;\n\n' + \
+        'package ' + nomeCartella + projectName + '.bin;\n' + \
+        '\n' + \
         'import java.io.File;\n' + \
         '\n' + \
-        'class ' + projectClassName + '{\n\n' + \
-        '\tpublic ' + projectClassName + '(){\n\n' + \
+        'class ' + projectClassName + '{\n' + \
+        '\n' + \
+        '\tpublic ' + projectClassName + '(){\n' + \
+        '\n' + \
         '\t}\n' + \
         '}\n' + \
         '\n' + \
         'class ' + projectClassName + 'Test{\n' + \
-        '\tpublic static void main(String[] args){\n\n' + \
-        '\tSystem.out.println("Start");\n\n' + \
+        '\tpublic static void main(String[] args){\n' + \
+        '\n' + \
+        '\tSystem.out.println("Start");\n' + \
+        '\n' + \
         '\t//\t\tCALCOLO PATH RELATIVO UNIVERSALE\n' + \
         '\t//----------------------------------------------------------------------\n' + \
         '\tString tempPath = new File(\n' + \
@@ -130,15 +135,19 @@ if __name__ == '__main__' and __package__ is None:
         '\t// COSTANTI\n' + \
         '\tString resursesPath = "/file/";\n' + \
         '\n' + \
-        '\tSystem.out.println("Hello, World");\n\n' + \
-        '\tSystem.out.println("End");\n\n' + \
+        '\tSystem.out.println("Hello, World");\n' + \
+        '\n' + \
+        '\tSystem.out.println("End");\n' + \
+        '\n' + \
         '\t}\n' + \
         '}'
 
     # Readme
     headerMd = \
-        "# Program name: " + projectClassName + ".java\n\n" + \
-        "---\n\n" + \
+        "# Program name: " + projectClassName + ".java\n" + \
+        "\n" + \
+        "---\n" + \
+        "\n" + \
         "## Consegna\n\n" + consegna.rstrip() + "\n"
 
     # OUTPUT
