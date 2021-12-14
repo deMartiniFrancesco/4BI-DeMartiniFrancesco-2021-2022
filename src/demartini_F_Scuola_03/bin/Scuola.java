@@ -95,4 +95,14 @@ class Scuola {
         }
         return -1;
     }
+
+    //TODO finire funzioni
+
+    public Boolean del(int indexOf) {
+        return true;
+    }
+
+    public int save(String s) {
+        return 0;
+    }
 }

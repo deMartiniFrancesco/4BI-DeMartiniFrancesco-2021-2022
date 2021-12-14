@@ -122,14 +122,14 @@ if __name__ == '__main__' and __package__ is None:
         '\t\t//\t\tCALCOLO PATH RELATIVO UNIVERSALE\n' + \
         '\t\t//----------------------------------------------------------------------\n' + \
         '\t\tString tempPath = new File(\n' + \
-        '\t\t\tString.valueOf(' + projectClassName + '.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
+        '\t\t\t\tString.valueOf(' + projectClassName + '.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
         '\t\t).getParent();\n' + \
         '\t\tFile uesrPath = new File(System.getProperty("user.dir"));\n' + \
         '\t\tString projectPath = uesrPath.getName().equals(tempPath) ?\n' + \
-        '\t\t\tuesrPath.getPath() :\n' + \
-        '\t\t\tnew File(uesrPath.getPath() + "/src").exists() ?\n' + \
-        '\t\t\t\tuesrPath.getPath() + "/src/" + tempPath :\n' + \
-        '\t\t\t\tuesrPath.getPath() + tempPath;\n' + \
+        '\t\t\t\tuesrPath.getPath() :\n' + \
+        '\t\t\t\tnew File(uesrPath.getPath() + "/src").exists() ?\n' + \
+        '\t\t\t\t\t\tuesrPath.getPath() + "/src/" + tempPath :\n' + \
+        '\t\t\t\t\t\tuesrPath.getPath() + tempPath;\n' + \
         '\t\t//----------------------------------------------------------------------\n' + \
         '\n' + \
         '\t\t// COSTANTI\n' + \
