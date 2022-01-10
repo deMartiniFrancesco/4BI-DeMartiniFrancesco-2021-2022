@@ -4,7 +4,7 @@
 
 | PROJECT | README |
 | :--- | ---: |
-| [demartini_F_ProvaInizializza](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_ProvaInizializza/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_ProvaInizializza/doc/README.md) |
+| [demartini_F_prova_2](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_prova_2/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_prova_2/doc/README.md) |
 
 ## Projects
 
@@ -48,7 +48,6 @@
 | [demartini_F_PosizioneCifra_01](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_PosizioneCifra_01/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_PosizioneCifra_01/doc/README.md) |
 | [demartini_F_PromessiSposi](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_PromessiSposi/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_PromessiSposi/doc/README.md) |
 | [demartini_F_prova](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_prova/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_prova/doc/README.md) |
-| [demartini_F_ProvaInizializza](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_ProvaInizializza/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_ProvaInizializza/doc/README.md) |
 | [demartini_F_Punto](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Punto/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Punto/doc/README.md) |
 | [demartini_F_QuanteCifre_01](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_QuanteCifre_01/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_QuanteCifre_01/doc/README.md) |
 | [demartini_F_Scaffale](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Scaffale/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Scaffale/doc/README.md) |

@@ -96,6 +96,7 @@ public class CartaDaGioco {
     }
 
     //TODO calcolo punteggio BlackJack
+    
     /**
      * Calcola il valore della carta in relazone dalle regole
      * L'asso può valere 11, o 1, le figure valgono 10, mentre le altre carte da gioco valgono il loro valore nominale.
