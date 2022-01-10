@@ -93,7 +93,7 @@ if __name__ == "__main__":
 	if boold:
 		print("Start")
 
-		updateMD(head + "/src/", "demartini_F_", "C://Users//frenk//Documents//School//INI//DeMartiniFrancesco-4BI-2021-2022//src//demartini_F_prova_2")
+		updateMD(head + "/src/", "demartini_F_", "")
 
 	if boold:
 		print("End")

@@ -4,7 +4,7 @@
 
 | PROJECT | README |
 | :--- | ---: |
-| [demartini_F_prova_2](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_prova_2/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_prova_2/doc/README.md) |
+| null | null |
 
 ## Projects
 
