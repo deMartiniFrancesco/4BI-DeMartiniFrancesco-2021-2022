@@ -15,10 +15,9 @@ os.chdir(percorso)
 
 boold = False
 if __name__ == '__main__':
-    
+
     if boold:
         print("Start")
-
 
     clipBoard = []
     counterCapolinea = 1
@@ -33,26 +32,33 @@ if __name__ == '__main__':
                 counterCapolinea += 1
             else:
                 counterCapolinea = 1
-        functionStr = input("inserire funzone da eseguire\n1 - clipBoardToString\t\t2 - format clipBoard\n")
+        functionStr = input(
+            "inserire funzone da eseguire\n1 - clipBoardToString\t\t2 - format clipBoard\n")
     else:
-        clipBoard.append("'package ' + nomeCartella + projectName + '.bin;\n\n' + \\".replace("'", '"'))
+        clipBoard.append(
+            "'package ' + nomeCartella + projectName + '.bin;\n\n' + \\".replace("'", '"'))
         functionStr = "2"
     print("------------------------------------------------------------------------------------------------------------------------")
 
     if(functionStr == "1"):
         for string in clipBoard:
-            print (repr(string) + " + \\")
-
+            print(repr(string) + " + \\")
 
     elif(functionStr == "2"):
         # TODO finire funzione 2 (formattazione stringa data in input)
         
         for i in range(len(clipBoard)):
-            if(clipBoard[i].find("\n\n") > -1):
-                clipBoard[i] = clipBoard[i].replace("\n\n", "\n")
-                print(clipBoard)
-                clipBoard.insert(i + 1, "\n + \\").decode('string_escape')
-        print(repr(clipBoard[0]).replace("'", "").replace("\\", '\\'))
+            clipBoard[i].strip()
+
+        for i in range(len(clipBoard)):
+            if(clipBoard[i].find("\\\\n\\\\n") > -1):
+                print("find")
+                clipBoard[i] = clipBoard[i].replace("\\\\n\\\\n", "\\n")
+                clipBoard.insert(i + 1, "\\n + \\")
+
+        for string in clipBoard:
+            print(repr(string).replace("'", "").encode().decode('unicode_escape'))
+        
     print("------------------------------------------------------------------------------------------------------------------------")
 
 
