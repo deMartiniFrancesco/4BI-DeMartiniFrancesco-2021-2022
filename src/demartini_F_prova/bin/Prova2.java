@@ -6,21 +6,19 @@ class Prova2 {
 
     public static char[][] createMatChar(int len) {
 
-        char[][] a = new char[len][len];
-        return a;
+        return new char[len][len];
     }
 
     public static int[][] createMatInt(int len) {
 
-        int[][] a = new int[len][len];
-        return a;
+        return new int[len][len];
     }
 
     public static void printMat(int[][] a) {
 
-        for (int riga = 0; riga < a.length; riga++) {
-            for (int colonna = 0; colonna < a[riga].length; colonna++) {
-                System.out.print(a[riga][colonna] + " ");
+        for (int[] ints : a) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
             }
             System.out.println();
         }
@@ -29,9 +27,9 @@ class Prova2 {
 
     public static void printMat(char[][] a) {
 
-        for (int riga = 0; riga < a.length; riga++) {
-            for (int colonna = 0; colonna < a[riga].length; colonna++) {
-                System.out.print(a[riga][colonna] + " ");
+        for (char[] chars : a) {
+            for (char aChar : chars) {
+                System.out.print(aChar + " ");
             }
             System.out.println();
         }

@@ -89,7 +89,7 @@ public class Player {
      *
      * @param mazzo the mazzo
      */
-    public void pescaCarta(MazzoDaGioco mazzo){
+    public void pescaCarta(MazzoDaGioco mazzo) {
         mano.addCard(mazzo.pescaCarta());
     }
 

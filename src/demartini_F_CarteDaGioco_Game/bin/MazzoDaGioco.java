@@ -7,11 +7,11 @@ import java.util.Collections;
  */
 public class MazzoDaGioco extends Mazzo {
 
-    private int nMazzi;
     private final int lenSetSeme = 13;
     private final int nJolly;
     private final int nCarte;
     private final boolean jolly;
+    private int nMazzi;
 
     /**
      * Instantiates a new Mazzo da gioco.

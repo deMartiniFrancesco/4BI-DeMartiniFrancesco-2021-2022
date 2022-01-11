@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The type Black jack.
@@ -53,7 +55,7 @@ public class BlackJack {
      *
      * @param args the input arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
 
         System.out.println("Start");
@@ -76,6 +78,9 @@ public class BlackJack {
         String resursesPath = "/file/";
         String rulesName = "rules.txt";
 
+        // Create a Logger with class name GFG
+        Logger logger = Logger.getLogger(BlackJack.class.getName());
+
         confirmDialog("Benvenuto in BlackJack", "BlackJack");
 
         if (!choseDialog("Conosci giá le regle?", "BlackJack")) {
@@ -90,7 +95,7 @@ public class BlackJack {
 
                 reader.close();
             } catch (IOException e) {
-                System.err.println(e);
+                logger.log(Level.WARNING, e.toString());
             }
         }
 

@@ -76,7 +76,7 @@ public class Mat01 {
 
         int len = 10;
         int[][] matrice = new int[len][len];
-        matrice = inizializzMatrice(matrice, len);
+        inizializzMatrice(matrice, len);
 
         visualMat(matrice, len);
         System.out.println();

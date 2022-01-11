@@ -11,30 +11,30 @@ public class CodiceFiscale {
     }
 
     public static String consonanti(String imput) {
-        String consonanti = "QWRTYPSDFGHJKLZXCVBNM",
-                output = "";
+        String consonanti = "QWRTYPSDFGHJKLZXCVBNM";
+        StringBuilder output = new StringBuilder();
         for (int i = 0; i < imput.length(); i++) {
             if (consonanti.indexOf(imput.charAt(i)) >= 0) {
-                output += imput.charAt(i);
+                output.append(imput.charAt(i));
             }
         }
-        return output;
+        return output.toString();
     }
 
     public static String lettere(String imput) {
-        String vocali = "AEIOU",
-                output = "";
+        String vocali = "AEIOU";
+        StringBuilder output = new StringBuilder();
 
-        output += consonanti(imput);
+        output.append(consonanti(imput));
 
         for (int i = 0; i < imput.length(); i++) {
             if (vocali.indexOf(imput.charAt(i)) >= 0) {
-                output += imput.charAt(i);
+                output.append(imput.charAt(i));
             }
         }
-        output += "XXX";
+        output.append("XXX");
 
-        return output;
+        return output.toString();
     }
 
 
@@ -49,13 +49,14 @@ public class CodiceFiscale {
 
     public static String data(String dataNascita, String sex) {  // data gg/mm/aa  AAMGG
         String mesi = "ABCDEHLMPRST";
+        char charAt = mesi.charAt(Integer.parseInt(dataNascita.substring(3, 5)) - 1);
         if (sex.charAt(0) == 'M') {
             return dataNascita.substring(6, 8)
-                    + mesi.charAt(Integer.parseInt(dataNascita.substring(3, 5)) - 1)
+                    + charAt
                     + dataNascita.substring(0, 2);
         } else {
             return dataNascita.substring(6, 8)
-                    + mesi.charAt(Integer.parseInt(dataNascita.substring(3, 5)) - 1)
+                    + charAt
                     + (char) (dataNascita.charAt(0) + 4) + dataNascita.charAt(1);
         }
 
@@ -87,7 +88,7 @@ public class CodiceFiscale {
     public static void main(String[] args) {
         String nome = input("nome"),
                 cognome = input("cognome"),
-                codiceFiscale = "",
+                codiceFiscale,
                 dataNascita = input("data di nascita\nes: (21 10 2003)"),
                 sesso = input("sesso M/F"),
                 comune = input("codice comune");

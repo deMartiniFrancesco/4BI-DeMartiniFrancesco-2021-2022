@@ -8,14 +8,14 @@ import java.util.List;
 
 class Alunno {
 
-    private int nMatricola;
-    private String cognome;
-    private String nome;
-    private String residenza;
-    private String classe;
-    private String nazione;
+    private final int nMatricola;
+    private final String cognome;
+    private final String nome;
+    private final String residenza;
+    private final String classe;
+    private final String nazione;
     private Date dataNascita;
-    private String cap;
+    private final String cap;
 
     public Alunno(int nMatricola, String cognome, String nome, String residenza, String classe, String nazione, String dataNascita, String cap) {
         this.nMatricola = nMatricola;

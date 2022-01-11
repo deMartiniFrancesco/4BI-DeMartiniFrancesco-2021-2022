@@ -24,6 +24,7 @@ class SerieNumeri_01 {
             for (int number : numbers) {
                 if (numberInput < number) {
                     serie = false;
+                    break;
                 }
             }
         }

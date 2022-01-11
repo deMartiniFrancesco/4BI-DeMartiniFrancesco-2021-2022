@@ -1,6 +1,9 @@
 package demartini_F_Oggetto_Scuola.bin;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -118,6 +121,7 @@ public class Scuola {
                 cont++;
             }
         }
+        vect = newVect;
     }
 
     public int indexOf(String s) {

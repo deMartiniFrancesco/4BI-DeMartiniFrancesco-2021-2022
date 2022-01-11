@@ -37,7 +37,7 @@ public class Persona {
     }
 
     public void set(String cognome, Date data_nasc, String nome) {
-        this.cognome = cognome;
+        this.data_nasc = data_nasc;
         this.cognome = cognome;
         this.nome = nome;
     }

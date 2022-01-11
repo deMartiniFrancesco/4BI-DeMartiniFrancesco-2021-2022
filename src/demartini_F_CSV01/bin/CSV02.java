@@ -8,12 +8,11 @@ import java.io.IOException;
 class CSV02 {
     // cerca il max in cntNomi
     public static int[] ordV(int[] cntNomi, String[] nomi, int numNomi) {
-        int len = numNomi;
         int index = 0;
-        int[] posizioni = new int[len];
-        for (int j = 0; j < len; j++) {
+        int[] posizioni = new int[numNomi];
+        for (int j = 0; j < numNomi; j++) {
             int pMax = 0;
-            for (int i = 0; i < len; i++) {
+            for (int i = 0; i < numNomi; i++) {
                 if (cntNomi[i] > pMax) {
                     pMax = cntNomi[i];
                     index = i;

@@ -21,7 +21,7 @@ class SerieNumerica_02 {
 
         numberInput = Integer.parseInt(input("numero serie"));
         numbers.add(numberInput);
-        boolean serie = numberInput + numbers.get(numbers.size() - 2) != 10;
+        boolean serie = numberInput + numbers.get(0) != 10;
 
         while (serie) {
             numberInput = Integer.parseInt(input("numero serie"));

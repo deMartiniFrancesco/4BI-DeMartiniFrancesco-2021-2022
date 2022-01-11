@@ -21,11 +21,7 @@ class PaninoPastina_01 {
         while (money > 1) {
             switch (input("cosa vuoi mangiare\npastina o panino")) {
                 case "pastina":
-                    if (money > pastina) {
-                        money -= pastina;
-                    } else {
-                        System.out.println("No money");
-                    }
+                    money -= pastina;
                     days++;
                     System.out.println(money);
                     break;

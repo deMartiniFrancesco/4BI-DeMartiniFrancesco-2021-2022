@@ -96,7 +96,7 @@ public class CartaDaGioco {
     }
 
     public int carcolaPunteggio() {
-        int punteggio = 0;
+        int punteggio;
         int valore = this.valore;
 
         if (this.seme == 4) {

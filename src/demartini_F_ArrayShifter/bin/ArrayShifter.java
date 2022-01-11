@@ -7,32 +7,32 @@ import java.util.Collections;
 
 class ArrayShifter {
 
-	private ArrayList<Integer> list;
+    private ArrayList<Integer> list;
 
     public ArrayShifter() {
-		list = new ArrayList<>();
+        list = new ArrayList<>();
     }
 
-	public void initList(int len) {
-		list = new ArrayList<>();
+    public void initList(int len) {
+        list = new ArrayList<>();
 
-		for (int i = 0; i < len; i++) {
-			list.add(i);
-		}
-	}
+        for (int i = 0; i < len; i++) {
+            list.add(i);
+        }
+    }
 
-	public void schiftList(int shift) {
-		Collections.rotate(list, shift);
-	}
+    public void schiftList(int shift) {
+        Collections.rotate(list, shift);
+    }
 
-	public ArrayList<Integer> getList() {
-		return list;
-	}
+    public ArrayList<Integer> getList() {
+        return list;
+    }
 
-	@Override
-	public String toString() {
-		return list.toString();
-	}
+    @Override
+    public String toString() {
+        return list.toString();
+    }
 }
 
 class ArrayShifterTest {
@@ -68,11 +68,10 @@ class ArrayShifterTest {
             shift = 0;
             if (!(len > 0)) {
                 list.initList(5);
-                System.out.println(list);
             } else {
                 list.initList(len);
-                System.out.println(list);
             }
+            System.out.println(list);
         }
 
         while (shift != 0) {

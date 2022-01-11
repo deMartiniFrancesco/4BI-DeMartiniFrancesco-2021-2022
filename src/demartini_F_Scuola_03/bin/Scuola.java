@@ -4,19 +4,17 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 
 class Scuola {
 
     // COSTANTI
-    String resursesPath = "/file/";
+    final String resursesPath = "/file/";
 
-    String projectPath;
-    ArrayList<Alunno> scuola;
+    final String projectPath;
+    final ArrayList<Alunno> scuola;
 
     public Scuola() {
 
@@ -76,7 +74,7 @@ class Scuola {
         for (Alunno alunno : scuola) {
             classi.add(alunno.getClasse());
         }
-        return (String[]) classi.toArray();
+        return classi.toArray(new String[0]);
     }
 
     public Alunno get(int index) {
@@ -89,7 +87,7 @@ class Scuola {
 
     public int indexOf(int matricola) {
         for (int i = 0; i < scuola.size(); i++) {
-            if(scuola.get(i).getnMatricola() == matricola){
+            if (scuola.get(i).getnMatricola() == matricola) {
                 return i;
             }
         }

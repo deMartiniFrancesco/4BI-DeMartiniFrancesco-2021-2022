@@ -1,7 +1,5 @@
 package demartini_F_Scaffale.bin;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-
 import java.util.Objects;
 
 public class Articolo {

@@ -1,8 +1,6 @@
 package demartini_F_CarteDaGioco_Game.bin;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
 
 /**
  * Mazzo

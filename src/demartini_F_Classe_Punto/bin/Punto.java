@@ -82,7 +82,6 @@ public class Punto {
 
     /**
      * @param x intero che indica l'ascissa del punto
-     * @param y
      */
     public void set(int x, int y) {
         // this.x=x;
@@ -125,8 +124,8 @@ public class Punto {
     public double distanzaDaOrigine() {
         int qDisX, qDisY;
         double ris;
-        qDisX = (this.x - 0) * (this.x - 0);
-        qDisY = (this.y - 0) * (this.y - 0);
+        qDisX = (this.x) * (this.x);
+        qDisY = (this.y) * (this.y);
         ris = Math.sqrt(qDisX + qDisY);
         return ris;
     }

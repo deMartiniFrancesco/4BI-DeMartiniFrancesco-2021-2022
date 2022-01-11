@@ -36,8 +36,8 @@ public class Vettori {
     // calcola e visualizza la somma
     public static int somma(final int[] vett) {
         int somma = 0;
-        for (int i = 0; i < vett.length; i++) {
-            somma += vett[i];
+        for (int j : vett) {
+            somma += j;
         }
         return somma;
     }
@@ -45,9 +45,9 @@ public class Vettori {
     // calcola e visualizza somma dei numeri pari
     public static int sommaPari(final int[] vett) {
         int somma = 0;
-        for (int i = 0; i < vett.length; i++) {
-            if (vett[i] % 2 == 0) {
-                somma += vett[i];
+        for (int j : vett) {
+            if (j % 2 == 0) {
+                somma += j;
             }
         }
         return somma;
@@ -58,8 +58,8 @@ public class Vettori {
         final int[] vRis = new int[2];
         int pari = 0;
         int dispari = 0;
-        for (int i = 0; i < vett.length; i++) {
-            if (vett[i] % 2 == 0) {
+        for (int j : vett) {
+            if (j % 2 == 0) {
                 pari++;
             } else {
                 dispari++;
@@ -93,8 +93,8 @@ public class Vettori {
             v[i] = (int) (Math.random() * 100);
         }
         // visualizza
-        for (int i = 0; i < v.length; i++) {
-            System.out.print(v[i] + " ");
+        for (int j : v) {
+            System.out.print(j + " ");
         }
         System.out.println();
         System.out.println("Il numero maggiore del vettore e': " + maxi(v)[0]);
@@ -105,8 +105,8 @@ public class Vettori {
                 + contPariDispari(v)[1]);
         System.out.print("Il vettore riordinato e': ");
         final int[] vRis = ordina(v);
-        for (int i = 0; i < vRis.length; i++) {
-            System.out.print(vRis[i] + " ");
+        for (int ris : vRis) {
+            System.out.print(ris + " ");
         }
     }
 }

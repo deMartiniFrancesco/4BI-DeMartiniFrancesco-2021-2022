@@ -17,6 +17,7 @@ class Poldo {
         while (!input.equals("")) {
             input = scanner.nextLine();
             switch (input) {
+// TODO
 //                case "comandi" -> System.out.println("""
 //                        Lista comandi:
 //                        menu ---> Per vedere tutti i prodotti disponibili

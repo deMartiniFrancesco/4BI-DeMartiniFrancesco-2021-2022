@@ -51,8 +51,6 @@ public class Eserc {
      * Conta il numero di righe che contengono un certo pattern il pattern può
      * essere in qualsiasi posizione
      *
-     * @param v
-     * @param str
      * @return numero di righe trovate
      */
     public static int cntSubstr(String[] v, String str) {
@@ -61,7 +59,6 @@ public class Eserc {
     }
 
     /**
-     * @param v
      * @return il nuovo vettore senza righe consecutive uguali
      */
     public static String[] uniq(String[] v) {
@@ -75,10 +72,6 @@ public class Eserc {
         System.out.println("Il file ha " + v.length + " linee");
         for (String s : v) {
             System.out.println(s);
-        }
-        if (v == null) {
-            System.out.println("Lettura file fallita");
-            return;
         }
 
         int p = posMin(v);
@@ -95,6 +88,7 @@ public class Eserc {
         System.out.println("numero di righe contententi " + t + "--> " + cntSubstr(v, t));
         String[] res = uniq(v);
         System.out.println("vettore senza ripetizioni");
+        assert res != null;
         for (String s : res) {
             System.out.println(s);
         }

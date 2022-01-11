@@ -11,23 +11,22 @@ class Codice_fiscale {
     }
 
     public static String consonanti(String str) {
-        String output = "",
-                vocali = "AEIOU ",
-                cons = "QWRTYPSDFGHJKLZXCVBNM";
-        int index = 0;
+        StringBuilder output = new StringBuilder();
+        String vocali = "AEIOU ";
+        String cons = "QWRTYPSDFGHJKLZXCVBNM";
 
         for (int i = 0; i < str.length(); i++) {
             if (cons.indexOf(str.charAt(i)) >= 0) {
-                output += str.charAt(i);
+                output.append(str.charAt(i));
             }
         }
 
         for (int i = 0; i < str.length(); i++) {
             if (vocali.indexOf(str.charAt(i)) >= 0) {
-                output += str.charAt(i);
+                output.append(str.charAt(i));
             }
         }
-        output += "xxx";
+        output.append("xxx");
 
         return output.substring(0, 3);
     }
@@ -37,13 +36,14 @@ class Codice_fiscale {
         String vetMesi = "ABCDEHLMPRST";
         int i = 0;
 
+        char charAt = vetMesi.charAt(Integer.parseInt(str.substring(3, 5)) - 1);
         if (sesso.charAt(0) == 'M') {
             return str.substring(6, 8)
-                    + vetMesi.charAt(Integer.parseInt(str.substring(3, 5)) - 1)
+                    + charAt
                     + str.substring(0, 2);
         } else {
             return str.substring(6, 8)
-                    + vetMesi.charAt(Integer.parseInt(str.substring(3, 5)) - 1)
+                    + charAt
                     + (char) (str.charAt(0) + 4) + str.charAt(1);
         }
     }

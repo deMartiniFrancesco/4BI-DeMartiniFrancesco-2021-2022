@@ -29,10 +29,8 @@ class MilionesimoPrimo_erat {
         // ogni 10 primi NL
 
         int cp = 0;
-        int ultimok = 0;
         for (int k = 1; k <= N; k++) {
             if (insP[k]) {
-                ultimok = k;
                 cp++;
                 if (cp == 1000000)
                     System.out.println(k);

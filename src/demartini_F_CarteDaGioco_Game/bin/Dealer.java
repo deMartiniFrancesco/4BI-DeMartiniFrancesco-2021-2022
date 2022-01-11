@@ -2,7 +2,7 @@ package demartini_F_CarteDaGioco_Game.bin;
 
 public class Dealer {
 
-    private MazzoDaGioco mazzo;
+    private final MazzoDaGioco mazzo;
 
 
     public Dealer() {
@@ -13,8 +13,7 @@ public class Dealer {
         return mazzo;
     }
 
-    public void initGame(){
-
+    public void initGame() {
 
 
     }

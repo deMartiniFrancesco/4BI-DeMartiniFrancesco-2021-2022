@@ -20,6 +20,7 @@ class PosizioneCifra_01 {
             int numero = (int) (cifra.charAt(i)) - 48;
             if (numero < i) {
                 proprieta = false;
+                break;
             }
         }
 

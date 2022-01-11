@@ -9,7 +9,7 @@ public class Box {
 
     public static int counter = 0;
     int valure = 0;
-    int index;
+    final int index;
 
     // Constructor Declaration of Class
     public Box(int counter) {
@@ -56,7 +56,7 @@ public class Box {
         int len = 10;
         Box[][] matrice = inizializzMatrice(new Box[len][len], len);
 
-        matrice = indexValure(matrice, len);
+        indexValure(matrice, len);
 
         visualMat(matrice, len);
 

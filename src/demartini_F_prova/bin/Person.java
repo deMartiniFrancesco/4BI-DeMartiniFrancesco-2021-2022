@@ -4,10 +4,10 @@ package demartini_F_prova.bin;
 
 public class Person {
     // Instance Variables
-    String name = " ";
-    String surname = " ";
-    int age = 0;
-    String sex = " ";
+    final String name;
+    final String surname;
+    final int age;
+    final String sex;
 
     // Constructor Declaration of Class
     public Person(String name, String surname,
