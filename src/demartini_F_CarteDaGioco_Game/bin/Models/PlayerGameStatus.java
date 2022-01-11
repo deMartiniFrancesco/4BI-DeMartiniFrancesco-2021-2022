@@ -5,7 +5,8 @@ public abstract interface PlayerGameStatus {
         WAITING,
         PASS,
         OUT,
-        DONE
+        DONE,
+        DOING
     }
 
 

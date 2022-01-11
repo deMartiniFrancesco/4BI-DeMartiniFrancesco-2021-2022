@@ -2,6 +2,7 @@ package demartini_F_CarteDaGioco_Game.bin;
 
 import demartini_F_CarteDaGioco_Game.bin.Entity.Dealer;
 import demartini_F_CarteDaGioco_Game.bin.Entity.Player;
+import demartini_F_CarteDaGioco_Game.bin.Models.PlayerGameStatus;
 import demartini_F_CarteDaGioco_Game.bin.Utils.DialogUtil;
 
 import java.io.BufferedReader;
@@ -67,6 +68,7 @@ public class Main {
         Dealer dealer = new Dealer();
 
         game.getPlayers().add(new Player(100));
+        game.getPlayers().add(new Player(50));
 
         // DARE LE CARTE INIZIALI
         dealer.initGame(game.getPlayers());
@@ -75,18 +77,22 @@ public class Main {
         //todo
         // creare funzione per vedere le carte
         // Udo dei tread per gestione di piú player
+        for (Player player : game.getPlayers()) {
+            player.showInterface();
+        }
+
+
+
 
         // PUNTATA PER OGNI PLAYER
-        for (Player player :
-                game.getPlayers()) {
-            player.setPuntata(DialogUtil.numberInput(String.format("inserire punata.\nSaldo attuale: %d", player.getSaldo())));
+        for (Player player : game.getPlayers()) {
+            player.setStatus(PlayerGameStatus.PlayerStatus.DOING);
         }
 
 
 
         for (Player player :
                 game.getPlayers()) {
-
             System.out.println(player);
         }
 

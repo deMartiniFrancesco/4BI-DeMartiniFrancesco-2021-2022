@@ -1,14 +1,13 @@
 package demartini_F_CarteDaGioco_Game.bin.Entity;
 
-import demartini_F_CarteDaGioco_Game.bin.Carte.Mano;
-import demartini_F_CarteDaGioco_Game.bin.Models.PlayerGameStatus;
+import demartini_F_CarteDaGioco_Game.bin.Models.PlayerModels;
+import demartini_F_CarteDaGioco_Game.bin.Utils.DialogUtil;
 
 /**
  * The type Player.
  */
-public class Player extends Mano implements PlayerGameStatus {
+public class Player extends PlayerModels {
 
-    private PlayerStatus status;
     private int puntata;
     private int saldo;
 
@@ -18,7 +17,6 @@ public class Player extends Mano implements PlayerGameStatus {
      */
     public Player() {
         super();
-        setStatus(PlayerStatus.WAITING);
         saldo = 0;
         puntata = 0;
     }
@@ -31,6 +29,7 @@ public class Player extends Mano implements PlayerGameStatus {
     public Player(int saldo) {
         this();
         this.saldo = saldo;
+        start();
     }
 
     /**
@@ -72,27 +71,25 @@ public class Player extends Mano implements PlayerGameStatus {
 
 
     @Override
+    public void run() {
+        do {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        while (this.status != PlayerStatus.DOING);
+        setPuntata(DialogUtil.numberInput(String.format("inserire punata.\nSaldo attuale: %d", getSaldo())));
+    }
+
+
+    @Override
     public String toString() {
         return "Player{" +
                 "puntata=" + puntata +
                 ", saldo=" + saldo +
                 ", mano=\n" + getMano() +
                 '}';
-    }
-
-    @Override
-    public void setStatus(PlayerStatus status) {
-        this.status = status;
-    }
-
-    @Override
-    public void pass() {
-        status = PlayerStatus.PASS;
-    }
-
-    @Override
-    public void out() {
-        status = PlayerStatus.OUT;
-
     }
 }
