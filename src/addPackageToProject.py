@@ -2,8 +2,8 @@
 __autor__ = "Francesco"
 __version__ = "0101 2021/11/30"
 
-from genericpath import isdir, isfile
 import os
+from genericpath import isdir, isfile
 
 exist = False
 percorso, tail = os.path.split(__file__)

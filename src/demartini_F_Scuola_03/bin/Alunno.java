@@ -14,8 +14,8 @@ class Alunno {
     private final String residenza;
     private final String classe;
     private final String nazione;
-    private Date dataNascita;
     private final String cap;
+    private Date dataNascita;
 
     public Alunno(int nMatricola, String cognome, String nome, String residenza, String classe, String nazione, String dataNascita, String cap) {
         this.nMatricola = nMatricola;

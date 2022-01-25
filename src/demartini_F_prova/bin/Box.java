@@ -8,8 +8,8 @@ public class Box {
     // Instance Variables
 
     public static int counter = 0;
-    int valure = 0;
     final int index;
+    int valure = 0;
 
     // Constructor Declaration of Class
     public Box(int counter) {
