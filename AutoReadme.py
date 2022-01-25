@@ -32,7 +32,7 @@ projectsMD = """
 
 def lastProjectString(dirUpdated):
 	string = "| null | null |\n"
-	if(dirUpdated != ""):
+	if dirUpdated != "":
 		top, end = os.path.split(dirUpdated)
 		src = Path(dirUpdated).resolve().parts
 		srcName = src[len(src)-2]
@@ -66,7 +66,7 @@ def projectsString(srcDirectory, dirProjectName):
 	return string
 
 
-def writeReadme(srcDirectory, lastString, projectString):
+def writeReadme(lastString, projectString):
 	try:
 		fileReadme = open(head + "//README.md", "w")
 
@@ -85,7 +85,7 @@ def writeReadme(srcDirectory, lastString, projectString):
 
 def updateMD(srcDirectory, dirProjectName, dirUpdated):
 
-	return writeReadme(srcDirectory, lastProjectString(dirUpdated), projectsString(srcDirectory, dirProjectName))
+	return writeReadme(lastProjectString(dirUpdated), projectsString(srcDirectory, dirProjectName))
 
 
 boold = True
