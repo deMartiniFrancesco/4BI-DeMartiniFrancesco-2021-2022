@@ -4,7 +4,7 @@
 
 | PROJECT | README |
 | :--- | ---: |
-| null | null |
+| [demartini_F_CampoMinato](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CampoMinato/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CampoMinato/doc/README.md) |
 
 ## Projects
 
@@ -14,6 +14,7 @@
 | [demartini_F_ArrayShifter](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_ArrayShifter/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_ArrayShifter/doc/README.md) |
 | [demartini_F_Asta_01](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Asta_01/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Asta_01/doc/README.md) |
 | [demartini_F_Asta_02](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Asta_02/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Asta_02/doc/README.md) |
+| [demartini_F_CampoMinato](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CampoMinato/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CampoMinato/doc/README.md) |
 | [demartini_F_CartaDaGioco](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CartaDaGioco/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CartaDaGioco/doc/README.md) |
 | [demartini_F_CartaDaGioco_2](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CartaDaGioco_2/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CartaDaGioco_2/doc/README.md) |
 | [demartini_F_CarteDaGioco_Game](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CarteDaGioco_Game/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CarteDaGioco_Game/doc/README.md) |
