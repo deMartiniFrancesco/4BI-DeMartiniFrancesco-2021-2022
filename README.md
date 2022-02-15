@@ -4,7 +4,7 @@
 
 | PROJECT | README |
 | :--- | ---: |
-| [demartini_F_CampoMinato](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CampoMinato/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_CampoMinato/doc/README.md) |
+| [demartini_F_SpreadInMatrix](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SpreadInMatrix/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SpreadInMatrix/doc/README.md) |
 
 ## Projects
 
@@ -57,6 +57,7 @@
 | [demartini_F_SerieNumerica_01](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SerieNumerica_01/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SerieNumerica_01/doc/README.md) |
 | [demartini_F_SerieNumerica_02](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SerieNumerica_02/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SerieNumerica_02/doc/README.md) |
 | [demartini_F_SerieNumeri_01](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SerieNumeri_01/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SerieNumeri_01/doc/README.md) |
+| [demartini_F_SpreadInMatrix](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SpreadInMatrix/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_SpreadInMatrix/doc/README.md) |
 | [demartini_F_Stato](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Stato/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Stato/doc/README.md) |
 | [demartini_F_Swing_01](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Swing_01/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Swing_01/doc/README.md) |
 | [demartini_F_Vettori](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Vettori/bin) | [ReadMe](https://github.com/deMartiniFrancesco/DeMartiniFrancesco-4BI-2021-2022/tree/master/src/demartini_F_Vettori/doc/README.md) |

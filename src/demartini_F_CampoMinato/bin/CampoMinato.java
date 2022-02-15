@@ -4,6 +4,9 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 class CampoMinato {
@@ -34,7 +37,10 @@ class CampoMinato {
             do {
                 randomRow = random.nextInt(lenCampo);
                 randomColumn = random.nextInt(lenCampo);
-            } while (campo.get(randomRow, randomColumn).isBomb());
+            } while (campo.get(randomRow, randomColumn).isBomb() || campo.get(randomRow, randomColumn).getCoordinate().rangeOf(safeCoordinate));
+
+            System.out.printf("Bomb at x = %d, y = %d%n", randomRow, randomColumn);
+
             campo.get(randomRow, randomColumn).setBomb(true);
         }
     }
@@ -65,6 +71,30 @@ class CampoMinato {
         }
 
 
+    }
+
+    public void touch(Coordinate coordinate) {
+        Casella casella = campo.get(coordinate.coordY(), coordinate.coordX());
+        if (casella.isBomb()) {
+            endGame();
+        }
+        if (casella.getBombCounter() == 0) {
+            for (int row = casella.getCoordinate().coordY() - 1; row <= casella.getCoordinate().coordY() + 1; row++) {
+
+            }
+        }
+        campo.get(coordinate.coordY(), coordinate.coordX()).setVisible(true);
+
+
+    }
+
+
+
+
+
+    private void endGame() {
+        System.out.println("Partita finita");
+        System.exit(0);
     }
 
 

@@ -1,16 +1,20 @@
 package demartini_F_CampoMinato.bin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Casella {
     private boolean isBomb;
     private boolean visible;
     private int bombCounter;
     private final Coordinate coordinate;
+    public List<Coordinate> cellNeigborsList = new ArrayList<>();
 
 
     public Casella(int column, int row) {
         coordinate = new Coordinate(column, row);
         isBomb = false;
-        visible = true;
+        visible = false;
     }
 
     public boolean isBomb() {
@@ -43,6 +47,6 @@ public class Casella {
 
     @Override
     public String toString() {
-        return String.valueOf(isBomb ? "X" : bombCounter == 0 ? " " : bombCounter);
+        return String.valueOf(isVisible()? isBomb ? "X" : bombCounter == 0 ? " " : bombCounter : "[]");
     }
 }
