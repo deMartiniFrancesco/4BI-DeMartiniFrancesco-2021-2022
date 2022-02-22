@@ -4,9 +4,6 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 class CampoMinato {
