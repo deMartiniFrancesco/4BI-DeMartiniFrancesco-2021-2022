@@ -1,8 +1,5 @@
 package demartini_F_SpreadInMatrix.bin;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public record Location(int row, int column) {
 
 
@@ -15,8 +12,12 @@ public record Location(int row, int column) {
     }
 
 
-    public boolean isDiagonal(){
-        return row != 0 && column != 0;
+    public boolean isDiagonal(Location loc){
+        return loc.row - row != 0 && loc.column - column != 0;
+    }
+
+    public int getDistance(Location target){
+        return Math.abs(target.row() - row) + Math.abs(target.column() - column);
     }
 
     @Override
