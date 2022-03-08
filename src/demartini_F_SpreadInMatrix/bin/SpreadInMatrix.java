@@ -20,33 +20,41 @@ class SpreadInMatrix {
 
 
         initMatrix();
+        ArrayList<Element> path = startPath(new ArrayList<>(List.of(getFromLocation(startLocation))));
 
+        initMatrix();
 
-        startPath(new ArrayList<>(List.of(getFromLocation(startLocation))));
+        path.stream()
+                .filter(element -> element.getValue() >= 0)
+                .forEach(element ->
+                        matrix[element.getLocation().row()][element.getLocation().column()]
+                                .setValue(element.getValue())
+                );
 
     }
 
 
-    public void startPath(ArrayList<Element> calcLocationList) {
+    public ArrayList<Element> startPath(ArrayList<Element> calcLocationList) {
 
-        if (calcLocationList.isEmpty()){
-            return;
+        if (calcLocationList.isEmpty()) {
+            return null;
         }
 
-        Element calcElement = getFromLocation(calcLocationList.get(0).getLocation());
+        Element calcElement = getFromLocation(calcLocationList.get(calcLocationList.size() - 1).getLocation());
 
-        List<Location> locations = calcElement.getAround(lenCampo);
+        List<Location> locations = getAround(calcElement, lenCampo);
 
-//        System.out.println(locations);
+
+        if (locations.contains(endLocation)) {
+            calcLocationList.add(getFromLocation(endLocation));
+            return calcLocationList;
+        }
 
         for (Location loc : locations) {
-
             Element element = getFromLocation(loc);
-            System.out.printf("%s isDiagonal : %s%n", loc, loc.isDiagonal(calcElement.getLocation()));
             if (element.getValue() == 0) {
                 element.addCost((loc.isDiagonal(calcElement.getLocation()) ? 0.75 : 1) + loc.getDistance(endLocation));
                 element.setValue(Math.max(calcElement.getValue(), 0) + 1);
-//                System.out.println(loc + "  " + element);
             }
         }
 
@@ -55,25 +63,46 @@ class SpreadInMatrix {
                 .filter(element -> !calcLocationList.contains(element))
                 .filter(element -> element.getValue() > 0)
                 .min(Comparator.comparing(Element::getCost, Double::compareTo));
-//
-        System.out.println(elementOptional + " " + (elementOptional.isPresent() ? elementOptional.get().getLocation() : "" ));
 
-        if (elementOptional.isEmpty()|| calcLocationList.contains(elementOptional.get())){
-            return;
+        if (elementOptional.isEmpty() || calcLocationList.contains(elementOptional.get())) {
+            return null;
         }
-        calcLocationList.add(0, elementOptional.get());
-
-        System.out.println(this);
-        startPath(calcLocationList);
-
+        calcLocationList.add(elementOptional.get());
+        return startPath(calcLocationList);
     }
 
+    private List<Location> getAround(Element element, int lenMax) {
 
-    private Element getFromLocation(Location location){
+        List<Location> locations = new ArrayList<>();
+
+        Location location = element.getLocation();
+
+        for (int row = (Math.max(location.row() - 1, 0)); row <= location.row() + 1; row++) {
+            for (int col = (Math.max(location.column() - 1, 0)); col <= location.column() + 1; col++) {
+                    if (element.getValue() != -3 &&
+                            row >= 0 && col >= 0
+                            && row < lenMax && col < lenMax) {
+
+                        Location tempLoc = new Location(row, col);
+
+                        if (location.isDiagonal(tempLoc)){
+
+                        }
+
+                        if (!tempLoc.equals(element.getLocation())) {
+                            locations.add(tempLoc);
+                        }
+                    }
+            }
+        }
+        return locations;
+    }
+
+    private Element getFromLocation(Location location) {
         return matrix[location.row()][location.column()];
     }
 
-    private List<Element> fromLocationToElement(List<Location> locations){
+    private List<Element> fromLocationToElement(List<Location> locations) {
 
         List<Element> elements = new ArrayList<>();
 
@@ -135,7 +164,11 @@ class SpreadInMatrixTest {
         // COSTANTI
         String resursesPath = "/file/";
 
-        SpreadInMatrix spread = new SpreadInMatrix(0, 0, 7, 5);
+        List<Location> walls = List.of(
+                new Location()
+        )
+
+        SpreadInMatrix spread = new SpreadInMatrix(0, 0, 7, 9);
 
         System.out.println(spread);
 

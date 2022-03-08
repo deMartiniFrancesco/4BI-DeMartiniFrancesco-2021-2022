@@ -22,7 +22,9 @@ public class Element {
         return switch (value) {
             case -1 -> "○";
             case -2 -> "▢";
-            default -> String.valueOf(cost);
+            case -3 -> "▮";
+            case 0 -> " ";
+            default -> String.valueOf(value);
 
         };
     }
@@ -53,24 +55,5 @@ public class Element {
 
     public void setLocation(Location location) {
         this.location = location;
-    }
-
-    public List<Location> getAround(int lenMax) {
-
-        List<Location> locations = new ArrayList<>();
-
-        for (int row = (Math.max(location.row() - 1, 0)); row <= location.row() + 1; row++) {
-            for (int col = (Math.max(location.column() - 1, 0)); col <= location.column() + 1; col++) {
-                if (row >= 0 && col >= 0 && row < lenMax && col < lenMax) {
-
-                    Location tempLoc = new Location(row, col);
-
-                    if (!tempLoc.equals(location)) {
-                        locations.add(tempLoc);
-                    }
-                }
-            }
-        }
-        return locations;
     }
 }
