@@ -2,8 +2,8 @@
 __autor__ = "Francesco"
 __version__ = "0101 2021/11/30"
 
-import os
-from genericpath import isdir, isfile
+from projectLib import *
+
 
 exist = False
 percorso, tail = os.path.split(__file__)
@@ -13,13 +13,19 @@ boold = True
 if __name__ == '__main__':
     if boold:
         print("Start")
+    # CONSTANTI
+    nomeCartella = getKeyValueJSON('nomeCartella')
+    readmeName = getKeyValueJSON('readmeName')
+    binName = getKeyValueJSON('binName')
+    docName = getKeyValueJSON('docName')
+    fileName = getKeyValueJSON('fileName')
 
     projectListDir = os.listdir()
 
     for directory in projectListDir:
-        if isdir(directory) and directory.startswith("demartini"):
-            package = "package " + directory + ".bin;\n"
-            directory += "/bin/"
+        if isdir(directory) and directory.startswith(nomeCartella):
+            package = "package " + directory + "." + binName + ";\n"
+            directory += "/" + binName + "/"
             if isdir(directory):
                 for javaFilePath in os.listdir(directory):
                     javaFilePath = directory + javaFilePath

@@ -1,21 +1,15 @@
 # -*- coding: utf-8 -*-
 __autor__ = "Francesco"
-__version__ = "0101 2020/10/12"
+__version__ = "0101 2021/10/12"
 
 # TODO modificare scrittura README encoding sbagliata
 
-
 import importlib
-import os
-import sys
-from pathlib import Path
+from projectLib import *
 
 exist = False
 percorso, tail = os.path.split(__file__)
 os.chdir(percorso)
-
-# CONSTANTI
-nomeCartella = "demartini_F_"
 
 
 def import_parents(level):
@@ -26,61 +20,35 @@ def import_parents(level):
     sys.path.append(str(top))
     try:
         sys.path.remove(str(parent))
-    except ValueError:  # already removed
+    except ValueError:  # giá rimosso
         pass
 
     __package__ = '.'.join(parent.parts[len(top.parts):])
     importlib.import_module(__package__)  # won't be needed after that
 
 
-def cartelle(nomeProgetto):
-    cartella = percorso + "//" + nomeCartella + nomeProgetto
-    esiste = os.path.isdir(cartella)
-    perBin = ""
-    perDoc = ""
-    perFile = ""
-
-    if not esiste:
-        os.makedirs(cartella)
-
-        perBin = cartella + "//" + "bin"
-        os.makedirs(perBin)
-
-        perDoc = cartella + "//" + "doc"
-        os.makedirs(perDoc)
-
-        perFile = cartella + "//" + "file"
-        os.makedirs(perFile)
-
-    else:
-        esiste = "Progetto già esistente"
-    return esiste, perBin, perDoc, perFile, cartella
-
-
-def creaFile(perBin, perDoc, intJava, intRead):
-    try:
-        filejava = open(perBin + "//" + projectClassName + ".java", "w")
-        filejava.write(intJava)
-        filejava.close()
-
-        filejava = open(perDoc + "//README.md", "w")
-        filejava.write(intRead)
-        filejava.close()
-    except IOError:
-        return False
-    return True
+# CONSTANTI
+nomeCartella = getKeyValueJSON('nomeCartella')
+readmeName = getKeyValueJSON('readmeName')
+binName = getKeyValueJSON('binName')
+docName = getKeyValueJSON('docName')
+fileName = getKeyValueJSON('fileName')
 
 
 boold = True
 if __name__ == '__main__' and __package__ is None:
-    import_parents(level=2)
-    from .. import AutoReadme
+    try:
+        import_parents(level=3)
+        from ... import AutoReadme
+        importNoError = True
+    except ImportError:
+        importNoError = False
 
     if boold:
         print("Start")
 
     # INPUT
-    projectName = input("inserire nome progetto: ")
+    projectName = input("inserire nome progetto: ").capitalize()
     consegna = ""
     counterCapolinea = 1
 
@@ -95,24 +63,24 @@ if __name__ == '__main__' and __package__ is None:
         else:
             counterCapolinea = 1
 
-    # VARIABILI
-
-    projectClassName = projectName[0].upper() + projectName[1:]
+    if importNoError:
+        generateReadme = input(
+            "Generare README (y/n): ").lower() in ("yes", "true", "y", "ye", "si", "s", "ok")
 
     # Java
     headerJava = \
-        'package ' + nomeCartella + projectName + '.bin;\n' + \
+        'package ' + nomeCartella + projectName + '.' + binName + ';\n' + \
         '\n' + \
         'import java.io.File;\n' + \
         '\n' + \
-        'class ' + projectClassName + ' {\n' + \
+        'class ' + projectName + ' {\n' + \
         '\n' + \
-        '\tpublic ' + projectClassName + '() {\n' + \
+        '\tpublic ' + projectName + '() {\n' + \
         '\n' + \
         '\t}\n' + \
         '}\n' + \
         '\n' + \
-        'class ' + projectClassName + 'Test {\n' + \
+        'class ' + projectName + 'Test {\n' + \
         '\tpublic static void main(String[] args) {\n' + \
         '\n' + \
         '\t\tSystem.out.println("Start");\n' + \
@@ -120,7 +88,7 @@ if __name__ == '__main__' and __package__ is None:
         '\t\t//\t\tCALCOLO PATH RELATIVO UNIVERSALE\n' + \
         '\t\t//----------------------------------------------------------------------\n' + \
         '\t\tString tempPath = new File(\n' + \
-        '\t\t\t\tString.valueOf(' + projectClassName + '.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
+        '\t\t\t\tString.valueOf(' + projectName + '.class.getPackage()).replace("package ", "").replace(".", "/")\n' + \
         '\t\t).getParent();\n' + \
         '\t\tFile uesrPath = new File(System.getProperty("user.dir"));\n' + \
         '\t\tString projectPath = uesrPath.getName().equals(tempPath) ?\n' + \
@@ -131,7 +99,7 @@ if __name__ == '__main__' and __package__ is None:
         '\t\t//----------------------------------------------------------------------\n' + \
         '\n' + \
         '\t\t// COSTANTI\n' + \
-        '\t\tString resursesPath = "/file/";\n' + \
+        '\t\tString resursesPath = "/' + fileName + '/";\n' + \
         '\n' + \
         '\t\tSystem.out.println("Hello, World");\n' + \
         '\n' + \
@@ -139,23 +107,25 @@ if __name__ == '__main__' and __package__ is None:
         '\n' + \
         '\t}\n' + \
         '}'
-
+    print(headerJava)
     # Readme
     headerMd = \
-        "# Program name: " + projectClassName + ".java\n" + \
+        "# Program name: " + projectName + ".java\n" + \
         "\n" + \
         "---\n" + \
         "\n" + \
         "## Consegna\n\n" + consegna.rstrip() + "\n"
 
     # OUTPUT
-    exist, perBin, perDoc, perFile, dirUpdated = cartelle(projectName)
+    exist, perBin, perDoc, perFile, dirUpdated = makeProjectDir(
+        projectName, nomeCartella, binName, docName, fileName)
 
     if not exist:
-        creation = creaFile(perBin, perDoc, headerJava, headerMd)
-        if creation:
+        creation = createJavaAndReadmeFile(
+            perBin, perDoc, headerJava, headerMd, projectName, readmeName)
+        if creation and generateReadme:
             AutoReadme.updateMD(percorso, nomeCartella, dirUpdated)
-        else:
+        elif(not creation):
             print("Erroe on write files")
     else:
         print(exist)
