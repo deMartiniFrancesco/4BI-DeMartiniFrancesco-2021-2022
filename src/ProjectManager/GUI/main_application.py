@@ -7,6 +7,7 @@ import settings_page
 from customtkinter import *
 from tkinter.filedialog import *
 
+
 class MainApplication(CTkFrame):
     def __init__(self, master, *args, **kwargs):
         CTkFrame.__init__(self, master=master, width=250, height=240, corner_radius=15)
