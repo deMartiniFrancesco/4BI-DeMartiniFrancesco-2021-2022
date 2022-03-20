@@ -50,7 +50,7 @@ def get_key_value_JSON(file_name, key):
     try:
         return data[key]
     except KeyError:
-        return None
+        return ""
 
 
 def get_dix_JSON(file_name):
@@ -123,10 +123,11 @@ def write_header(file_name):
 
 def save_header(file_name, text):
     f = write_header(file_name)
-    
+
     f.write(text)
-    
+
     f.close()
+
 
 def search_tags(file_name):
     f = read_header(file_name)

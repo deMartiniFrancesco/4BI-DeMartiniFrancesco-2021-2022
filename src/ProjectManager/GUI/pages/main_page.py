@@ -18,8 +18,8 @@ class MainPage(CTkFrame):
 
         title = CTkLabel(master=self,
                          text="Project Manager",
-                         text_font=("Roboto Medium", -20))  # font name and size in px
-        title.grid(row=0, column=0)
+                         text_font=("Roboto Medium", 20))  # font name and size in px
+        title.grid(row=0, column=0, pady=20)
 
         self.label_info_1 = CTkLabel(master=self,
                                      text="Questa apprlicazione é stata creata per permettere un\n" +

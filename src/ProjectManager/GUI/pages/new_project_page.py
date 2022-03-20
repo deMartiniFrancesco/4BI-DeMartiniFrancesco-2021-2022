@@ -45,11 +45,11 @@ class NewProjectPage(CTkFrame):
         self.title.grid(row=0, column=1, pady=20)
 
 
-        self.entry = CTkEntry(master=self,
+        self.project_name_entry = CTkEntry(master=self,
                               width=500,
                               height=45,
                               placeholder_text="Titolo progetto")
-        self.entry.grid(row=1, column=0, columnspan=3, padx=20, pady=20)
+        self.project_name_entry.grid(row=1, column=0, columnspan=3, padx=20, pady=20)
 
 
         self.description_window_open = False
@@ -88,9 +88,7 @@ class NewProjectPage(CTkFrame):
     def create_lenguage_toplevel(self):
 
         def on_closing(window):
-            if project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "lenguage_selected") == []:
-                messagebox.showerror(
-                    "Error", "Devi selezionare minimo 1 linguaggio")
+            if not self.lenguage_selected_check():
                 return
 
             self.lenguage_window_open = False
@@ -102,7 +100,7 @@ class NewProjectPage(CTkFrame):
             except KeyError:
                 return
             selected_lenguage_list: list = project_lib.get_key_value_JSON(
-                PROJECT_SETTINGS_FILE, "lenguage_selected")
+                PROJECT_SETTINGS_FILE, "linguaggi_selezionati")
             if value:
                 selected_lenguage_list.append(lenguage)
             else:
@@ -111,7 +109,7 @@ class NewProjectPage(CTkFrame):
                 except ValueError:
                     pass
             project_lib.update_key_JSON(
-                PROJECT_SETTINGS_FILE, "lenguage_selected", selected_lenguage_list)
+                PROJECT_SETTINGS_FILE, "linguaggi_selezionati", selected_lenguage_list)
 
         if not self.lenguage_window_open:
             self.lenguage_window_open = True
@@ -142,7 +140,7 @@ class NewProjectPage(CTkFrame):
 
             lenguage_switch = {}
             selected_lenguage_list: list = project_lib.get_key_value_JSON(
-                PROJECT_SETTINGS_FILE, "lenguage_selected")
+                PROJECT_SETTINGS_FILE, "linguaggi_selezionati")
             for lenguage in supported_leguages:
                 i += 1
                 var = CTkSwitch(master=frame,
@@ -169,7 +167,7 @@ class NewProjectPage(CTkFrame):
             
             description = text_area.get("1.0", tkinter.END).rstrip("\n")
             
-            project_lib.update_key_JSON(PROJECT_SETTINGS_FILE, "description", description)
+            project_lib.update_key_JSON(PROJECT_SETTINGS_FILE, "descrizione", description)
             
             self.description_window_open = False
             window.destroy()
@@ -201,7 +199,7 @@ class NewProjectPage(CTkFrame):
             text_area = scrolledtext.ScrolledText(frame, wrap=tkinter.WORD,
                                                   width=40, height=8,
                                                   font=("Roboto Medium", 10))
-            text_area.insert(tkinter.INSERT, project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "description").rstrip("\n"))
+            text_area.insert(tkinter.INSERT, project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "descrizione").rstrip("\n"))
             
             text_area.grid(column=0, row=0, pady=10, padx=10)
 
@@ -220,11 +218,34 @@ class NewProjectPage(CTkFrame):
                                       command= clear_text)
             clear_button.grid(row=5, column=0, pady=10, padx=10, sticky="sw")
 
+    def project_title_check(self, project_title):
+        if(project_title == "" or len(project_title) < 3):
+            messagebox.showerror("Invalid Input", "Inserire un titolo valido o\ncaratteri minimi 3")
+            return False
+        return True
+            
+    def lenguage_selected_check(self):
+        if project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "linguaggi_selezionati") == []:
+                messagebox.showerror(
+                    "Error", "Devi selezionare minimo 1 linguaggio")
+                return False
+        return True
+
     def submit_all(self):
+        project_title = self.project_name_entry.get()
+        if not self.project_title_check(project_title) or not self.lenguage_selected_check():
+            return
+        project_lib.update_key_JSON(PROJECT_SETTINGS_FILE, "nome_progetto", project_title)
         
-        
+        if project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "descrizione") == "":
+            empty_description = messagebox.askquestion ("Empty description",'La descrizione é vuota, vuoi aggiungerne una?',icon = 'warning')
+            print(empty_description)
+            if empty_description == "yes":
+                self.create_description_toplevel()
+                return
+            
+        print("Project creation")
         
         
         #TODO inserire funzione inizializza
-        pass
 
