@@ -221,6 +221,10 @@ class NewProjectPage(CTkFrame):
             clear_button.grid(row=5, column=0, pady=10, padx=10, sticky="sw")
 
     def submit_all(self):
+        
+        
+        
+        
         #TODO inserire funzione inizializza
         pass
 

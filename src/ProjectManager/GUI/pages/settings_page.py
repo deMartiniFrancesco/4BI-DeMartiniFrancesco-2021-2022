@@ -52,31 +52,34 @@ class SettingsPage(CTkFrame):
         button_1.grid(row=1, column=1,
                       padx=20, sticky="we")
 
-        button_2 = CTkButton(
+        edit_variable_button = CTkButton(
             master=self,
             text="Modifica variabili",
             fg_color=("gray75", "gray30"),
             command=lambda: self.change_page(SettingsPageEnum.EDIT_VARIABLE))
-        button_2.grid(row=2, column=1,
+        edit_variable_button.grid(row=2, column=1,
                       padx=20, sticky="we")
+        edit_variable_button.config(state=tkinter.DISABLED)
 
-        button_3 = CTkButton(
-            master=self, text="modifica flags",
+        edit_flag_button = CTkButton(
+            master=self, text="Modifica flags",
             fg_color=("gray75", "gray30"), 
             command=lambda: self.change_page(SettingsPageEnum.EDIT_FLAG))
-        button_3.grid(row=3, column=1,
+        edit_flag_button.grid(row=3, column=1,
                       padx=20, sticky="we")
-
+        edit_flag_button.config(state=tkinter.DISABLED)
+        
+        
     def change_page(self, page_type):
         match page_type:
             case SettingsPageEnum.EDIT_HEADER:
-                self.app.change_right_frame(EditHeadersPage(self.app))
+                self.app.change_right_frame(EditHeadersPage(self.app, self.app))
 
             case SettingsPageEnum.EDIT_VARIABLE:
-                self = EditHeadersPage(self)
+                pass
 
             case SettingsPageEnum.EDIT_FLAG:
-                self = EditHeadersPage(self)
+                pass
 
             case _:
-                self = SettingsPage(self)
+                pass

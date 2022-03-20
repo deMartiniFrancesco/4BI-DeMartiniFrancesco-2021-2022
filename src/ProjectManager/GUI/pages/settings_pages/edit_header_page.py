@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from typing import Text
-from ....bin import project_lib
 __autor__ = "Francesco"
 __version__ = "0101 2022/03/16"
 
@@ -26,11 +24,14 @@ def import_parents(level):
 
 
 import_parents(4)
+from ....bin import project_lib
+from ...main_application import App
+from ...main_page_enum import MainPageEnum
 
 
 class EditHeadersPage(CTkFrame):
-    def __init__(self, master):
-
+    def __init__(self, master, app: App):
+        self.app = app
         super().__init__(master)
 
         # configure grid layout (3x7)
@@ -65,17 +66,29 @@ class EditHeadersPage(CTkFrame):
             self.open_editor_dix[header] = False
             buttons.append(var)
 
+        back_button = CTkButton(
+                master=self,
+                text=f"Indietro",
+                fg_color=("gray75", "gray30"),
+                command=lambda: self.app.chose_frame(MainPageEnum.SETTINGS))
+        
+        
+        back_button.grid(row=7, column=0, columnspan=3,
+                     padx=20, pady= 20, sticky="es")
+
         def open_header_editor(header):
 
             def clear_text():
                 text_editor.delete("1.0", "end")
 
-            def on_closing(window):
-                
-                text = text_editor.get("1.0", tkinter.END).rstrip("\n")
-                
-                project_lib.save_header(header, text)
-                
+            def save_request(window):
+                on_closing(window, messagebox.askyesno("Save", "Salvare modifiche?"))
+
+            def on_closing(window, saving):
+                if saving:
+                    text = text_editor.get("1.0", tkinter.END).rstrip("\n")
+                    project_lib.save_header(header, text)
+                    
                 self.open_editor_dix[header] = False
                 window.destroy()
 
@@ -84,7 +97,7 @@ class EditHeadersPage(CTkFrame):
                 window = CTkToplevel(self)
                 window.geometry("900x530")
 
-                window.protocol("WM_DELETE_WINDOW", lambda: on_closing(window))
+                window.protocol("WM_DELETE_WINDOW", lambda: save_request(window))
 
                 # configure grid layout (1x2)
                 window.columnconfigure(0, weight=1)
@@ -127,16 +140,18 @@ class EditHeadersPage(CTkFrame):
                 frame_right.grid(row=1, column=1, padx=20,
                                  pady=20, sticky="nswe")
 
-                # configure grid layout (2x1)
+                # configure grid layout (3x2)
                 frame_right.rowconfigure(1, weight=10)
                 frame_right.columnconfigure(0, weight=1)
+                frame_right.columnconfigure(1, weight=1)
+                frame_right.columnconfigure(2, weight=1)
 
                 text_editor = scrolledtext.ScrolledText(frame_right, wrap=tkinter.WORD,
                                                         font=("Roboto Medium", 10))
                 text_editor.insert(
                     tkinter.INSERT, project_lib.get_header_text(header).rstrip("\n"))
 
-                text_editor.grid(column=0, row=0, pady=10,
+                text_editor.grid(column=0, row=0, columnspan=3, pady=10,
                                  padx=10, sticky="nsew")
 
                 # placing cursor in text area
@@ -145,9 +160,17 @@ class EditHeadersPage(CTkFrame):
                 submit_button = CTkButton(master=frame_right,
                                           text="Fatto",
                                           fg_color=("gray75", "gray30"),
-                                          command=lambda: on_closing(window))
-                submit_button.grid(row=1, column=0, pady=10,
+                                          command=lambda: on_closing(window, True))
+                submit_button.grid(row=1, column=2, pady=10,
                                    padx=10, sticky="se")
+
+                cancel_button = CTkButton(master=frame_right,
+                                         text="Annulla",
+                                         fg_color=("gray75", "gray30"),
+                                         command=lambda: on_closing(window, False))
+                cancel_button.grid(row=1, column=1, pady=10,
+                                  padx=10, sticky="s")
+
 
                 clear_button = CTkButton(master=frame_right,
                                          text="Cancella",

@@ -73,6 +73,7 @@ class App(CTk):
                                              fg_color=("gray75", "gray30"),
                                              command=lambda: self.chose_frame(MainPageEnum.SORT_PROJECT))
         self.sort_project_button.grid(row=3, column=0, pady=10, padx=20)
+        self.sort_project_button.config(state=tkinter.DISABLED)
 
         self.settings_button = CTkButton(master=self.frame_left,
                                          text="Settings",
@@ -102,7 +103,8 @@ class App(CTk):
                 self.change_right_frame(NewProjectPage(self))
 
             case MainPageEnum.SORT_PROJECT:
-                self.change_right_frame(SettingsPage(self))
+                # TODO sort project
+                pass
 
             case MainPageEnum.SETTINGS:
                 self.change_right_frame(SettingsPage(self, self))
