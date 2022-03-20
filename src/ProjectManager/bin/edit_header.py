@@ -3,7 +3,7 @@ __autor__="Francesco"
 __version__="0101 2022/03/14"
 
 import re
-from projectLib import *
+from project_lib import *
 
 exist = False
 percorso, tail = os.path.split(__file__)
@@ -22,7 +22,7 @@ def searchTags(listLines):
     for line in listLines:
         matchs = pattern.findall(line)
         for keys in matchs:
-            keyString = getKeyValueJSON(keys.strip("{%%}"))
+            keyString = get_key_value_JSON(keys.strip("{%%}"))
             if not keyString == None:
                 print(keyString)
 

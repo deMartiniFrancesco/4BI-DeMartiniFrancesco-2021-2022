@@ -2,26 +2,27 @@
 __autor__ = "Francesco"
 __version__ = "0101 2022/03/14"
 
-from tkinter import *
+
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.filedialog import *
+from __init__ import *
 
 
-class TextEditor(Frame):
+class TextEditor(tk.Frame):
     def __init__(self, master, *args, **kwargs):
-        Frame.__init__(self, master, *args, **kwargs)
+        tk.Frame.__init__(self, master, *args, **kwargs)
 
         root.protocol("WM_DELETE_WINDOW", self.on_closing)
 
         self.rowconfigure(0, minsize=300, weight=1)
         self.columnconfigure(1, minsize=500, weight=1)
 
-        self.txt_edit = Text(self)
-        scrollbar = Scrollbar(self.txt_edit, orient="vertical")
-        fr_buttons = Frame(self, relief=RAISED, bd=2)
-        btn_open = Button(fr_buttons, text="Open", command=self.open_file)
-        btn_save = Button(fr_buttons, text="Save", command=self.save_file)
+        self.txt_edit = tk.Text(self)
+        scrollbar = tk.Scrollbar(self.txt_edit, orient="vertical")
+        fr_buttons = tk.Frame(self, relief=tk.RAISED, bd=2)
+        btn_open = tk.Button(fr_buttons, text="Open", command=self.open_file)
+        btn_save = tk.Button(fr_buttons, text="Save", command=self.save_file)
 
         btn_open.grid(row=0, column=0, sticky="ew", padx=5, pady=5)
         btn_save.grid(row=1, column=0, sticky="ew", padx=5)
@@ -40,7 +41,7 @@ class TextEditor(Frame):
         if not filepath:
             messagebox.showerror('Open file', 'No file selected!')
             return
-        self.txt_edit.delete(1.0, END)
+        self.txt_edit.delete(1.0, tk.END)
         self.currentFilePath = filepath
         with open(filepath, "r") as input_file:
             text = input_file.read()
@@ -52,7 +53,7 @@ class TextEditor(Frame):
             messagebox.showerror('Saving', 'No file selected!')
             return
         with open(self.currentFilePath, "w") as output_file:
-            text = self.txt_edit.get(1.0, END)
+            text = self.txt_edit.get(1.0, tk.END)
             output_file.write(text)
         messagebox.showinfo('Saving', 'File currect saved!')
         self.txt_edit.edit_modified(False)
@@ -70,7 +71,7 @@ if __name__ == "__main__":
     if boold:
         print("Start")
 
-    root = Tk()
+    root = tk.Tk()
     root.title("Text Editor Application")
 
     TextEditor(root).pack(side="top", fill="both", expand=True)

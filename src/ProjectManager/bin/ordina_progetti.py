@@ -2,7 +2,9 @@
 __autor__ = "Francesco"
 __version__ = "0101 2021/10/12"
 
-from projectLib import *
+import glob
+import shutil
+from project_lib import *
 
 
 boold = True
@@ -15,11 +17,11 @@ if __name__ == "__main__":
     percorso = os.getcwd()
 
     # CONSTANTI
-    nomeCartella = getKeyValueJSON('nomeCartella')
-    readmeName = getKeyValueJSON('readmeName')
-    binName = getKeyValueJSON('binName')
-    docName = getKeyValueJSON('docName')
-    fileName = getKeyValueJSON('fileName')
+    nomeCartella = get_key_value_JSON('nomeCartella')
+    readmeName = get_key_value_JSON('readmeName')
+    binName = get_key_value_JSON('binName')
+    docName = get_key_value_JSON('docName')
+    fileName = get_key_value_JSON('fileName')
 
     vettFile = glob.glob('*.java')
     for f in vettFile:
@@ -33,7 +35,7 @@ if __name__ == "__main__":
                    "\n" + \
                    "## Consegna\n _________________"
 
-        exist, perBin, perDoc, perFile, cartella = makeProjectDir(
+        exist, perBin, perDoc, perFile, cartella = make_project_dir(
             projectName, nomeCartella, binName, docName, fileName)
 
         if (not exist == False):

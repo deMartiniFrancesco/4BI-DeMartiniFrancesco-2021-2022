@@ -2,7 +2,7 @@
 __autor__ = "Francesco"
 __version__ = "0101 2021/11/30"
 
-from projectLib import *
+from project_lib import *
 
 
 exist = False
@@ -14,11 +14,11 @@ if __name__ == '__main__':
     if boold:
         print("Start")
     # CONSTANTI
-    nomeCartella = getKeyValueJSON('nomeCartella')
-    readmeName = getKeyValueJSON('readmeName')
-    binName = getKeyValueJSON('binName')
-    docName = getKeyValueJSON('docName')
-    fileName = getKeyValueJSON('fileName')
+    nomeCartella = get_key_value_JSON('nomeCartella')
+    readmeName = get_key_value_JSON('readmeName')
+    binName = get_key_value_JSON('binName')
+    docName = get_key_value_JSON('docName')
+    fileName = get_key_value_JSON('fileName')
 
     projectListDir = os.listdir()
 

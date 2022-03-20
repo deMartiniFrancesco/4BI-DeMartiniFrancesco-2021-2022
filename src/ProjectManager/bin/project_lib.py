@@ -2,8 +2,7 @@
 __autor__="Francesco"
 __version__="0101 2022/03/14"
 
-import os, sys, json, glob, shutil
-from pathlib import Path
+import os, json
 from genericpath import isdir, isfile
 
 exist = False
@@ -13,19 +12,19 @@ os.chdir(percorso)
 # CONSTANTI
 pathSeparation = "//"
 
-def openJSON():
+def open_JSON(fileName):
     try:
-        f = open('../file/projectSettings.json', 'r+')
+        f = open('../file/' + fileName, 'r+')
         return f
     except FileNotFoundError:
-        with open('projectSettings.json', 'w') as f:
+        with open('../file/' + fileName, 'w') as f:
             json.dump({}, f, indent=4)
-        return openJSON()
+        return open_JSON(fileName)
     except:
         exit(1)
 
-def updateKeyJSON(key, value):
-    f = openJSON()
+def update_key_JSON(fileName, key, value):
+    f = open_JSON(fileName)
     data = json.load(f)
     data[key] = value
     f.seek(0)
@@ -33,12 +32,12 @@ def updateKeyJSON(key, value):
     f.truncate()
     f.close()
 
-def updateJSON(dix):
+def update_JSON(fileName, dix):
     for key, value in dix.items():
-        updateKeyJSON(key, value)
+        update_key_JSON(fileName, key, value)
 
-def getKeyValueJSON(key):
-    f = openJSON()
+def get_key_value_JSON(fileName, key):
+    f = open_JSON(fileName)
     data = json.load(f)
     f.close()
     try:
@@ -46,8 +45,8 @@ def getKeyValueJSON(key):
     except KeyError:
         return None
 
-def getDixJSON():
-    f = openJSON()
+def get_dix_JSON(fileName):
+    f = open_JSON(fileName)
     data = json.load(f)
     f.close()
     return data
@@ -55,7 +54,7 @@ def getDixJSON():
 def rotate(lista: list, n):
     return lista[n:] + lista[:n]
 
-def makeProjectDir(nomeProgetto, nomeCartella, binName, docName, fileName):
+def make_project_dir(nomeProgetto, nomeCartella, binName, docName, fileName):
     cartella = percorso + pathSeparation + nomeCartella + nomeProgetto
     esiste = os.path.isdir(cartella)
     perBin = ""
@@ -78,7 +77,7 @@ def makeProjectDir(nomeProgetto, nomeCartella, binName, docName, fileName):
         esiste = "Progetto già esistente"
     return esiste, perBin, perDoc, perFile, cartella
 
-def createJavaAndReadmeFile(perBin, perDoc, intJava, intRead, projectName, readmeName):
+def create_java_and_readme_file(perBin, perDoc, intJava, intRead, projectName, readmeName):
     try:
         filejava = open(perBin + pathSeparation +
                         projectName + ".java", "w")
@@ -100,13 +99,16 @@ if __name__ == "__main__":
 
     dix = {}
     
-    dix['nomeCartella'] = "demartini_F_"
-    dix['readmeName'] = "README.md"
-    dix['binName'] = "bin"
-    dix['docName'] = "doc"
-    dix['fileName'] = "file"
+    dix["nome_cartella"] = "demartini_F_"
+    dix["readme_name"] = "README.md"
+    dix["bin_name"] = "bin"
+    dix["doc_name"] = "doc"
+    dix["file_name"] = "file"
+    dix["lenguage_selected"] = []
+    dix["description"] = ""
+    dix["auto_readme"] = False
 
-    updateJSON(dix)
+    update_JSON('project_settings.json', dix)
 
     if boold:
         print("End")
