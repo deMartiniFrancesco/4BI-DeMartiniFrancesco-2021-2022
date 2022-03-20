@@ -1,12 +1,10 @@
 {
-    "nome_cartella": "demartini_F_",
-    "readme_name": "README.md",
-    "bin_name": "bin",
-    "doc_name": "doc",
-    "file_name": "file",
-    "lenguage_selected": [
-        "java"
-    ],
-    "description": "",
-    "auto_readme": true
+    "prefisso_cartella": "demartini_F_",
+    "nome_readme": "README.md",
+    "cartella_bin": "bin",
+    "cartella_doc": "doc",
+    "cartella_file": "file",
+    "linguaggi_selezionati": [],
+    "descrizione": "",
+    "auto_readme": false
 }

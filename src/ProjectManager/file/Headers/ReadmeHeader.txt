@@ -1,5 +1,6 @@
-# Program name: {%nomeCartella%}.java
+# Program name: {%nome_progetto%}.java
 
 ---
 
 ## Consegna
+{%descrizione%}

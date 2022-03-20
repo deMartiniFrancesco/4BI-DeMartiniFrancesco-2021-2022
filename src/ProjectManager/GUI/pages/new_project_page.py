@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
-from tkinter import messagebox, scrolledtext
-from ...bin import project_lib
 __autor__ = "Francesco"
 __version__ = "0101 2022/03/19"
 
-from doctest import master
+from tkinter import messagebox, scrolledtext
 from pathlib import Path
 from customtkinter import *
 
-SETTINGS_FILE_NAME = "project_settings.json"
+PROJECT_SETTINGS_FILE = "project_settings.json"
 
 def import_parents(level):
     global __package__
@@ -25,6 +23,7 @@ def import_parents(level):
 
 
 import_parents(3)
+from ...bin import project_lib
 
 
 class NewProjectPage(CTkFrame):
@@ -35,7 +34,7 @@ class NewProjectPage(CTkFrame):
         # configure grid layout (3x7)
         for i in [0, 1, 2, 3]:
             self.rowconfigure(i, weight=1)
-        self.rowconfigure(7, weight=10)
+        self.rowconfigure(5, weight=10)
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=1)
         self.columnconfigure(2, weight=1)
@@ -80,16 +79,16 @@ class NewProjectPage(CTkFrame):
             self, text="Crea Progetto",
             fg_color=("gray75", "gray30"),  # <- custom tuple-color
             command=self.submit_all)
-        self.lenguage_button.grid(row=7, column=0,columnspan=3, padx=30, pady=30,sticky="se")
+        self.lenguage_button.grid(row=5, column=0,columnspan=3, padx=30, pady=30,sticky="se")
 
     def change_auto_readme(self):
         self.auto_readme = not self.auto_readme
-        project_lib.update_key_JSON(SETTINGS_FILE_NAME, "auto_readme", self.auto_readme)
+        project_lib.update_key_JSON(PROJECT_SETTINGS_FILE, "auto_readme", self.auto_readme)
 
     def create_lenguage_toplevel(self):
 
         def on_closing(window):
-            if project_lib.get_key_value_JSON(SETTINGS_FILE_NAME, "lenguage_selected") == []:
+            if project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "lenguage_selected") == []:
                 messagebox.showerror(
                     "Error", "Devi selezionare minimo 1 linguaggio")
                 return
@@ -103,7 +102,7 @@ class NewProjectPage(CTkFrame):
             except KeyError:
                 return
             selected_lenguage_list: list = project_lib.get_key_value_JSON(
-                SETTINGS_FILE_NAME, "lenguage_selected")
+                PROJECT_SETTINGS_FILE, "lenguage_selected")
             if value:
                 selected_lenguage_list.append(lenguage)
             else:
@@ -112,7 +111,7 @@ class NewProjectPage(CTkFrame):
                 except ValueError:
                     pass
             project_lib.update_key_JSON(
-                SETTINGS_FILE_NAME, "lenguage_selected", selected_lenguage_list)
+                PROJECT_SETTINGS_FILE, "lenguage_selected", selected_lenguage_list)
 
         if not self.lenguage_window_open:
             self.lenguage_window_open = True
@@ -143,7 +142,7 @@ class NewProjectPage(CTkFrame):
 
             lenguage_switch = {}
             selected_lenguage_list: list = project_lib.get_key_value_JSON(
-                SETTINGS_FILE_NAME, "lenguage_selected")
+                PROJECT_SETTINGS_FILE, "lenguage_selected")
             for lenguage in supported_leguages:
                 i += 1
                 var = CTkSwitch(master=frame,
@@ -170,7 +169,7 @@ class NewProjectPage(CTkFrame):
             
             description = text_area.get("1.0", tkinter.END).rstrip("\n")
             
-            project_lib.update_key_JSON(SETTINGS_FILE_NAME, "description", description)
+            project_lib.update_key_JSON(PROJECT_SETTINGS_FILE, "description", description)
             
             self.description_window_open = False
             window.destroy()
@@ -202,7 +201,7 @@ class NewProjectPage(CTkFrame):
             text_area = scrolledtext.ScrolledText(frame, wrap=tkinter.WORD,
                                                   width=40, height=8,
                                                   font=("Roboto Medium", 10))
-            text_area.insert(tkinter.INSERT, project_lib.get_key_value_JSON(SETTINGS_FILE_NAME, "description").rstrip("\n"))
+            text_area.insert(tkinter.INSERT, project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "description").rstrip("\n"))
             
             text_area.grid(column=0, row=0, pady=10, padx=10)
 
@@ -225,6 +224,3 @@ class NewProjectPage(CTkFrame):
         #TODO inserire funzione inizializza
         pass
 
-
-    def clear(self):
-        print("Main page clear")

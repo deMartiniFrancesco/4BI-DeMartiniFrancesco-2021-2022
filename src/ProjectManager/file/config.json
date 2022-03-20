@@ -2,5 +2,16 @@
     "supported_leguages": [
         "java",
         "python"
-    ]
+    ],
+    "tags": [
+        "prefisso_cartella",
+        "nome_readme",
+        "cartella_bin",
+        "cartella_doc",
+        "cartella_file",
+        "descrizione",
+        "nome_progetto",
+        "auto_readme"
+    ],
+    "work_space_name": "src"
 }

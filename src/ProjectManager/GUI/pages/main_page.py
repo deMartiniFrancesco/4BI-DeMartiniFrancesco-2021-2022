@@ -32,9 +32,3 @@ class MainPage(CTkFrame):
                                      justify=tkinter.CENTER,
                                      text_font=("Roboto Medium", -15))
         self.label_info_1.grid(row=1, column=0, sticky="nwe", padx=15, pady=15)
-
-
-
-
-    def clear(self):
-        print("Main page clear")

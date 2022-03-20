@@ -2,25 +2,7 @@ from pathlib import Path
 import sys
 from customtkinter import *
 
-def import_parents(level):
-    global __package__
-    file = Path(__file__).resolve()
-    parent, top = file.parent, file.parents[level]
 
-    sys.path.append(str(top))
-    try:
-        sys.path.remove(str(parent))
-    except ValueError:  # giá rimosso
-        pass
-
-    __package__ = '.'.join(parent.parts[len(top.parts):])
-
-
-import_parents(2)
-from .page_enum import PageEnum
-from .pages.settings_page import SettingsPage
-from .pages.new_project_page import NewProjectPage
-from .pages.main_page import MainPage
 
 
 # Modes: "System" (standard), "Dark", "Light"
@@ -30,7 +12,7 @@ set_default_color_theme("blue")
 
 
 class App(CTk):
-
+    
     WIDTH = 780
     HEIGHT = 520
 
@@ -82,20 +64,20 @@ class App(CTk):
                                             text="Nuovo Progetto",
                                             # <- custom tuple-color
                                             fg_color=("gray75", "gray30"),
-                                            command=lambda: self.change_page(PageEnum.NEW_PROJECT))
+                                            command=lambda: self.chose_frame(MainPageEnum.NEW_PROJECT))
         self.new_project_button.grid(row=2, column=0, pady=10, padx=20)
 
         self.sort_project_button = CTkButton(master=self.frame_left,
                                              text="Ordina Progetti",
                                              # <- custom tuple-color
                                              fg_color=("gray75", "gray30"),
-                                             command=lambda: self.change_page(PageEnum.SORT_PROJECT))
+                                             command=lambda: self.chose_frame(MainPageEnum.SORT_PROJECT))
         self.sort_project_button.grid(row=3, column=0, pady=10, padx=20)
 
         self.settings_button = CTkButton(master=self.frame_left,
                                          text="Settings",
                                          fg_color=("gray75", "gray30"), # <- custom tuple-color
-                                         command=lambda: self.change_page(PageEnum.SETTINGS))
+                                         command=lambda: self.chose_frame(MainPageEnum.SETTINGS))
         self.settings_button.grid(
             row=9, column=0, pady=10, padx=20, sticky="w")
 
@@ -105,24 +87,28 @@ class App(CTk):
         self.switch_dark_mode.select()
         self.switch_dark_mode.grid(
             row=10, column=0, pady=10, padx=20, sticky="w")
-
-    def change_page(self, pageType):
+            
+    def change_right_frame(self, frame: CTkFrame):
         self.clear_frame_right()
 
-        match pageType:
-            case PageEnum.NEW_PROJECT:
-                self.frame_right = NewProjectPage(self)
-
-            case PageEnum.SORT_PROJECT:
-                self.frame_right = SettingsPage(self)
-
-            case PageEnum.SETTINGS:
-                self.frame_right = SettingsPage(self)
-
-            case _:
-                self.frame_right = MainPage(self)
+        self.frame_right = frame
 
         self.frame_right.grid(row=0, column=1, sticky="nswe", padx=20, pady=20)
+
+
+    def chose_frame(self, page_type):
+        match page_type:
+            case MainPageEnum.NEW_PROJECT:
+                self.change_right_frame(NewProjectPage(self))
+
+            case MainPageEnum.SORT_PROJECT:
+                self.change_right_frame(SettingsPage(self))
+
+            case MainPageEnum.SETTINGS:
+                self.change_right_frame(SettingsPage(self, self))
+
+            case _:
+                self.change_right_frame(MainPage(self))
 
     def change_mode(self):
         if self.switch_dark_mode.get() == 1:
@@ -141,5 +127,25 @@ class App(CTk):
 
 
 if __name__ == "__main__":
+    def import_parents(level):
+        global __package__
+        file = Path(__file__).resolve()
+        parent, top = file.parent, file.parents[level]
+
+        sys.path.append(str(top))
+        try:
+            sys.path.remove(str(parent))
+        except ValueError:  # giá rimosso
+            pass
+
+        __package__ = '.'.join(parent.parts[len(top.parts):])
+
+
+    import_parents(2)
+    from .main_page_enum import MainPageEnum
+    from .pages.settings_page import SettingsPage
+    from .pages.new_project_page import NewProjectPage
+    from .pages.main_page import MainPage
+    
     app = App()
     app.start()

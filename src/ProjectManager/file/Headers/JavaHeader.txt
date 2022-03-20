@@ -1,15 +1,15 @@
-package demartini_F_Provabella.bin;
+package {%prefisso_cartella%}{%nome_progetto%}.{%cartella_bin%};
 
 import java.io.File;
 
-class Provabella {
+class {%nome_progetto%} {
 
-        public Provabella() {
+        public {%nome_progetto%}() {
 
         }
 }
 
-class ProvabellaTest {
+class {%nome_progetto%}Test {
         public static void main(String[] args) {
 
                 System.out.println("Start");
@@ -17,18 +17,18 @@ class ProvabellaTest {
                 //              CALCOLO PATH RELATIVO UNIVERSALE
                 //----------------------------------------------------------------------
                 String tempPath = new File(
-                                String.valueOf(Provabella.class.getPackage()).replace("package ", "").replace(".", "/")  
+                                String.valueOf({%nome_progetto%}.class.getPackage()).replace("package ", "").replace(".", "/")  
                 ).getParent();
                 File uesrPath = new File(System.getProperty("user.dir"));
                 String projectPath = uesrPath.getName().equals(tempPath) ?
                                 uesrPath.getPath() :
-                                new File(uesrPath.getPath() + "/src").exists() ?
-                                                uesrPath.getPath() + "/src/" + tempPath :
+                                new File(uesrPath.getPath() + "/{%work_space_name%}").exists() ?
+                                                uesrPath.getPath() + "/{%work_space_name%}/" + tempPath :
                                                 uesrPath.getPath() + tempPath;
                 //----------------------------------------------------------------------
 
                 // COSTANTI
-                String resursesPath = "/file/";
+                String resursesPath = "/{%cartella_file%}/";
 
                 System.out.println("Hello, World");
 
@@ -36,9 +36,3 @@ class ProvabellaTest {
 
         }
 }
-
-
-
-
-
-
