@@ -9,7 +9,6 @@ import java.util.Random;
 class CampoMinato {
 
     private final int lenCampo = 10;
-    private final int nBombe = 10;
     Table<Integer, Integer, Casella> campo = HashBasedTable.create();
 
     public CampoMinato(Coordinate safeCoordinate) {
@@ -28,6 +27,7 @@ class CampoMinato {
 
     private void generateBomb(Coordinate safeCoordinate) {
         //generate random bomb coord
+        int nBombe = 10;
         for (int i = 0; i < nBombe; i++) {
             Random random = new Random();
             int randomRow, randomColumn;

@@ -2,9 +2,6 @@ from pathlib import Path
 import sys
 from customtkinter import *
 
-
-
-
 # Modes: "System" (standard), "Dark", "Light"
 set_appearance_mode("System")
 # Themes: "blue" (standard), "green", "dark-blue"
@@ -12,7 +9,6 @@ set_default_color_theme("blue")
 
 
 class App(CTk):
-    
     WIDTH = 780
     HEIGHT = 520
 
@@ -77,7 +73,7 @@ class App(CTk):
 
         self.settings_button = CTkButton(master=self.frame_left,
                                          text="Settings",
-                                         fg_color=("gray75", "gray30"), # <- custom tuple-color
+                                         fg_color=("gray75", "gray30"),  # <- custom tuple-color
                                          command=lambda: self.chose_frame(MainPageEnum.SETTINGS))
         self.settings_button.grid(
             row=9, column=0, pady=10, padx=20, sticky="w")
@@ -88,14 +84,13 @@ class App(CTk):
         self.switch_dark_mode.select()
         self.switch_dark_mode.grid(
             row=10, column=0, pady=10, padx=20, sticky="w")
-            
+
     def change_right_frame(self, frame: CTkFrame):
         self.clear_frame_right()
 
         self.frame_right = frame
 
         self.frame_right.grid(row=0, column=1, sticky="nswe", padx=20, pady=20)
-
 
     def chose_frame(self, page_type):
         match page_type:
@@ -148,6 +143,6 @@ if __name__ == "__main__":
     from .pages.settings_page import SettingsPage
     from .pages.new_project_page import NewProjectPage
     from .pages.main_page import MainPage
-    
+
     app = App()
     app.start()

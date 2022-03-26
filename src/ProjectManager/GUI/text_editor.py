@@ -2,11 +2,9 @@
 __autor__ = "Francesco"
 __version__ = "0101 2022/03/14"
 
-
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.filedialog import *
-from __init__ import *
 
 
 class TextEditor(tk.Frame):
@@ -31,7 +29,6 @@ class TextEditor(tk.Frame):
         self.txt_edit.grid(row=0, column=1, sticky="nsew")
 
         self.currentFilePath = None
-
 
     def open_file(self):
         """Open a file for editing."""
@@ -65,6 +62,7 @@ class TextEditor(tk.Frame):
                 root.destroy()
         else:
             root.destroy()
+
 
 boold = True
 if __name__ == "__main__":

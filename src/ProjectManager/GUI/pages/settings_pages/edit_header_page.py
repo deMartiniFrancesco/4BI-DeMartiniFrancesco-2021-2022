@@ -4,6 +4,7 @@ __version__ = "0101 2022/03/16"
 
 from pathlib import Path
 from tkinter import messagebox, scrolledtext
+
 from customtkinter import *
 
 CONFIG_FILE = "config.json"
@@ -67,14 +68,13 @@ class EditHeadersPage(CTkFrame):
             buttons.append(var)
 
         back_button = CTkButton(
-                master=self,
-                text=f"Indietro",
-                fg_color=("gray75", "gray30"),
-                command=lambda: self.app.chose_frame(MainPageEnum.SETTINGS))
-        
-        
+            master=self,
+            text=f"Indietro",
+            fg_color=("gray75", "gray30"),
+            command=lambda: self.app.chose_frame(MainPageEnum.SETTINGS))
+
         back_button.grid(row=7, column=0, columnspan=3,
-                     padx=20, pady= 20, sticky="es")
+                         padx=20, pady=20, sticky="es")
 
         def open_header_editor(header):
 
@@ -88,7 +88,7 @@ class EditHeadersPage(CTkFrame):
                 if saving:
                     text = text_editor.get("1.0", tkinter.END).rstrip("\n")
                     project_lib.save_header(header, text)
-                    
+
                 self.open_editor_dix[header] = False
                 window.destroy()
 
@@ -165,12 +165,11 @@ class EditHeadersPage(CTkFrame):
                                    padx=10, sticky="se")
 
                 cancel_button = CTkButton(master=frame_right,
-                                         text="Annulla",
-                                         fg_color=("gray75", "gray30"),
-                                         command=lambda: on_closing(window, False))
+                                          text="Annulla",
+                                          fg_color=("gray75", "gray30"),
+                                          command=lambda: on_closing(window, False))
                 cancel_button.grid(row=1, column=1, pady=10,
-                                  padx=10, sticky="s")
-
+                                   padx=10, sticky="s")
 
                 clear_button = CTkButton(master=frame_right,
                                          text="Cancella",

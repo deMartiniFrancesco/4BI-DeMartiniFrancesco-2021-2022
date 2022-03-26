@@ -3,7 +3,9 @@ __autor__ = "Francesco"
 __version__ = "0101 2022/03/16"
 
 from pathlib import Path
+
 from customtkinter import *
+
 
 def import_parents(level):
     global __package__
@@ -23,6 +25,8 @@ import_parents(3)
 from .settings_page_enum import SettingsPageEnum
 from .settings_pages.edit_header_page import EditHeadersPage
 from ..main_application import App
+
+
 # from .pages.new_project_page import NewProjectPage
 # from .pages.main_page import MainPage
 
@@ -30,7 +34,7 @@ class SettingsPage(CTkFrame):
     def __init__(self, master, app: App):
         self.app = app
         super().__init__(master)
-        
+
         # configure grid layout (3x7)
         for i in range(5):
             self.rowconfigure(i, weight=1)
@@ -58,18 +62,17 @@ class SettingsPage(CTkFrame):
             fg_color=("gray75", "gray30"),
             command=lambda: self.change_page(SettingsPageEnum.EDIT_VARIABLE))
         edit_variable_button.grid(row=2, column=1,
-                      padx=20, sticky="we")
+                                  padx=20, sticky="we")
         edit_variable_button.config(state=tkinter.DISABLED)
 
         edit_flag_button = CTkButton(
             master=self, text="Modifica flags",
-            fg_color=("gray75", "gray30"), 
+            fg_color=("gray75", "gray30"),
             command=lambda: self.change_page(SettingsPageEnum.EDIT_FLAG))
         edit_flag_button.grid(row=3, column=1,
-                      padx=20, sticky="we")
+                              padx=20, sticky="we")
         edit_flag_button.config(state=tkinter.DISABLED)
-        
-        
+
     def change_page(self, page_type):
         match page_type:
             case SettingsPageEnum.EDIT_HEADER:

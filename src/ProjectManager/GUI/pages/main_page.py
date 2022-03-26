@@ -7,9 +7,8 @@ from customtkinter import *
 
 class MainPage(CTkFrame):
     def __init__(self, master):
-
         super().__init__(master)
-    
+
         # configure grid layout (3x7)
         for i in [0, 1, 2, 3]:
             self.rowconfigure(i, weight=1)
@@ -23,9 +22,9 @@ class MainPage(CTkFrame):
 
         self.label_info_1 = CTkLabel(master=self,
                                      text="Questa apprlicazione é stata creata per permettere un\n" +
-                                     "ottimizzazione nella gestione del proprio progetto.\n\n" +
-                                     "Clicca su uno dei bottoni qui a fianco " +
-                                     "per scegliere cosa fare.",
+                                          "ottimizzazione nella gestione del proprio progetto.\n\n" +
+                                          "Clicca su uno dei bottoni qui a fianco " +
+                                          "per scegliere cosa fare.",
                                      height=100,
                                      # <- custom tuple-color
                                      fg_color=("white", "gray38"),

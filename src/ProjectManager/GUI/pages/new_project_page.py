@@ -2,11 +2,13 @@
 __autor__ = "Francesco"
 __version__ = "0101 2022/03/19"
 
-from tkinter import messagebox, scrolledtext
 from pathlib import Path
+from tkinter import messagebox, scrolledtext
+
 from customtkinter import *
 
 PROJECT_SETTINGS_FILE = "project_settings.json"
+
 
 def import_parents(level):
     global __package__
@@ -44,13 +46,11 @@ class NewProjectPage(CTkFrame):
                               text_font=("Roboto Medium", 20))  # font name and size in px
         self.title.grid(row=0, column=1, pady=20)
 
-
         self.project_name_entry = CTkEntry(master=self,
-                              width=500,
-                              height=45,
-                              placeholder_text="Titolo progetto")
+                                           width=500,
+                                           height=45,
+                                           placeholder_text="Titolo progetto")
         self.project_name_entry.grid(row=1, column=0, columnspan=3, padx=20, pady=20)
-
 
         self.description_window_open = False
         self.lenguage_button = CTkButton(
@@ -59,7 +59,6 @@ class NewProjectPage(CTkFrame):
             command=self.create_description_toplevel)
         self.lenguage_button.grid(row=2, column=1, padx=40)
 
-
         self.lenguage_window_open = False
         self.lenguage_button = CTkButton(
             self, text="Scegli linguaggio",
@@ -67,19 +66,17 @@ class NewProjectPage(CTkFrame):
             command=self.create_lenguage_toplevel)
         self.lenguage_button.grid(row=3, column=1, padx=30)
 
-
         self.auto_readme = False
         self.auto_readme_switch = CTkSwitch(master=self,
-                                          text="Abilitare AutoReadme",
-                                          command=self.change_auto_readme)
+                                            text="Abilitare AutoReadme",
+                                            command=self.change_auto_readme)
         self.auto_readme_switch.grid(row=4, column=1, padx=40, pady=30)
-
 
         self.lenguage_button = CTkButton(
             self, text="Crea Progetto",
             fg_color=("gray75", "gray30"),  # <- custom tuple-color
             command=self.submit_all)
-        self.lenguage_button.grid(row=5, column=0,columnspan=3, padx=30, pady=30,sticky="se")
+        self.lenguage_button.grid(row=5, column=0, columnspan=3, padx=30, pady=30, sticky="se")
 
     def change_auto_readme(self):
         self.auto_readme = not self.auto_readme
@@ -161,14 +158,14 @@ class NewProjectPage(CTkFrame):
     def create_description_toplevel(self):
 
         def clear_text():
-            text_area.delete("1.0","end")
-                    
+            text_area.delete("1.0", "end")
+
         def on_closing(window):
-            
+
             description = text_area.get("1.0", tkinter.END).rstrip("\n")
-            
+
             project_lib.update_key_JSON(PROJECT_SETTINGS_FILE, "descrizione", description)
-            
+
             self.description_window_open = False
             window.destroy()
 
@@ -199,8 +196,9 @@ class NewProjectPage(CTkFrame):
             text_area = scrolledtext.ScrolledText(frame, wrap=tkinter.WORD,
                                                   width=40, height=8,
                                                   font=("Roboto Medium", 10))
-            text_area.insert(tkinter.INSERT, project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "descrizione").rstrip("\n"))
-            
+            text_area.insert(tkinter.INSERT,
+                             project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "descrizione").rstrip("\n"))
+
             text_area.grid(column=0, row=0, pady=10, padx=10)
 
             # placing cursor in text area
@@ -211,24 +209,24 @@ class NewProjectPage(CTkFrame):
                                       fg_color=("gray75", "gray30"),
                                       command=lambda: on_closing(window))
             submit_button.grid(row=5, column=0, pady=10, padx=10, sticky="se")
-            
+
             clear_button = CTkButton(master=frame,
-                                      text="Cancella",
-                                      fg_color=("gray75", "gray30"),
-                                      command= clear_text)
+                                     text="Cancella",
+                                     fg_color=("gray75", "gray30"),
+                                     command=clear_text)
             clear_button.grid(row=5, column=0, pady=10, padx=10, sticky="sw")
 
     def project_title_check(self, project_title):
-        if(project_title == "" or len(project_title) < 3):
+        if (project_title == "" or len(project_title) < 3):
             messagebox.showerror("Invalid Input", "Inserire un titolo valido o\ncaratteri minimi 3")
             return False
         return True
-            
+
     def lenguage_selected_check(self):
         if project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "linguaggi_selezionati") == []:
-                messagebox.showerror(
-                    "Error", "Devi selezionare minimo 1 linguaggio")
-                return False
+            messagebox.showerror(
+                "Error", "Devi selezionare minimo 1 linguaggio")
+            return False
         return True
 
     def submit_all(self):
@@ -236,16 +234,15 @@ class NewProjectPage(CTkFrame):
         if not self.project_title_check(project_title) or not self.lenguage_selected_check():
             return
         project_lib.update_key_JSON(PROJECT_SETTINGS_FILE, "nome_progetto", project_title)
-        
+
         if project_lib.get_key_value_JSON(PROJECT_SETTINGS_FILE, "descrizione") == "":
-            empty_description = messagebox.askquestion ("Empty description",'La descrizione é vuota, vuoi aggiungerne una?',icon = 'warning')
+            empty_description = messagebox.askquestion("Empty description",
+                                                       'La descrizione é vuota, vuoi aggiungerne una?', icon='warning')
             print(empty_description)
             if empty_description == "yes":
                 self.create_description_toplevel()
                 return
-            
-        print("Project creation")
-        
-        
-        #TODO inserire funzione inizializza
 
+        print("Project creation")
+
+        # TODO inserire funzione inizializza
