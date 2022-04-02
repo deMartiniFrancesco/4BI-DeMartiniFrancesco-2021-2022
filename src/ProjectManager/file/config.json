@@ -1,8 +1,8 @@
 {
-    "supported_leguages": [
-        "java",
-        "python"
-    ],
+    "supported_leguages": {
+        "java": "java",
+        "python": "py"
+    },
     "tags": [
         "prefisso_cartella",
         "nome_readme",

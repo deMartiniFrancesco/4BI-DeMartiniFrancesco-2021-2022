@@ -30,11 +30,11 @@ def import_parents(level):
 
 
 # CONSTANTI
-nomeCartella = get_key_value_JSON('nomeCartella')
-readmeName = get_key_value_JSON('readmeName')
-binName = get_key_value_JSON('binName')
-docName = get_key_value_JSON('docName')
-fileName = get_key_value_JSON('fileName')
+nomeCartella = get_key_value_JSON('project_settings.json', 'prefisso_cartella')
+readmeName = get_key_value_JSON('project_settings.json', 'nome_readme')
+binName = get_key_value_JSON('project_settings.json', 'cartella_bin')
+docName = get_key_value_JSON('project_settings.json', 'cartella_doc')
+fileName = get_key_value_JSON('project_settings.json', 'cartella_file')
 
 
 boold = True
@@ -69,15 +69,24 @@ if __name__ == '__main__' and __package__ is None:
         generateReadme = input(
             "Generare README (y/n): ").lower() in ("yes", "true", "y", "ye", "si", "s", "ok")
 
-
     # OUTPUT
     exist, perBin, perDoc, perFile, dirUpdated = make_project_dir(
-        projectName, nomeCartella, binName, docName, fileName)
+        "C://Users//frenk//OneDrive//Documenti//School//INI//Test",
+        projectName, 
+        nomeCartella, 
+        binName, 
+        docName, 
+        fileName)
 
     if not exist:
-        creation = create_java_and_readme_file(
-            perBin, perDoc, headerJava, headerMd, projectName, readmeName)
-        if creation and generateReadme:
+        creation = create_project_file(
+            perBin,
+            perDoc,
+            ["java"],
+            projectName,
+            readmeName)
+
+        if creation and importNoError and generateReadme:
             AutoReadme.updateMD(percorso, nomeCartella, dirUpdated)
         elif(not creation):
             print("Erroe on write files")

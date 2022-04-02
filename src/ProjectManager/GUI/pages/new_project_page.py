@@ -243,6 +243,15 @@ class NewProjectPage(CTkFrame):
                 self.create_description_toplevel()
                 return
 
-        print("Project creation")
 
-        # TODO inserire funzione inizializza
+        exist, perBin, perDoc = project_lib.make_project_dir()
+
+        if not exist:
+            project_lib.create_project_file(
+                perBin,
+                perDoc)
+        else:
+            messagebox.showerror(
+                "Error", "Progetto giá esistente")
+
+    
