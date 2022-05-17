@@ -12,9 +12,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/venv" type="java-resource" />
     </content>
-    <orderEntry type="jdk" jdkName="openjdk-17" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="google.guava" level="project" />
-    <orderEntry type="library" name="Python 3.10 (DeMartiniFrancesco-4BI-2021-2022) interpreter library" level="application" />
+    <orderEntry type="library" name="sqlite-jdbc-3.36.0.3" level="project" />
   </component>
 </module>
