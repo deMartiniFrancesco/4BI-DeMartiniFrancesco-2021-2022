@@ -6,9 +6,10 @@ class Poldo {
     public static void main(String[] args) {
         System.out.println("Start");
 
-        System.out.println("        ### BAR POLDO ####\n" +
-                "    ---- inserire un comando---\n" +
-                "---- lista comandi: 'comandi' ---");
+        System.out.println("""
+                        ### BAR POLDO ####
+                    ---- inserire un comando---
+                ---- lista comandi: 'comandi' ---""");
 
         Listino listino = new Listino();
         Scanner scanner = new Scanner(System.in);
@@ -28,21 +29,11 @@ class Poldo {
 //
 //                    }
 //                }
-                case "bevanda":
-                    listino.addProdotto(new Bevanda());
-                    break;
-                case "panino":
-                    listino.addProdotto(new Panino());
-                    break;
-                case "piatto":
-                    listino.addProdotto(new Piatto());
-                    break;
-
-                default:
-                    System.out.println("Comando errato\n" +
-                            "Digita 'comandi' per avere la lista dei comandi disponibili");
-                    break;
-
+                case "bevanda" -> listino.addProdotto(new Bevanda());
+                case "panino" -> listino.addProdotto(new Panino());
+                case "piatto" -> listino.addProdotto(new Piatto());
+                default -> System.out.println("Comando errato\n" +
+                        "Digita 'comandi' per avere la lista dei comandi disponibili");
             }
         }
         System.out.println(listino);

@@ -41,7 +41,7 @@ class CSV02 {
         // restituisce il nome più ripetuto
         String linea, fileIn = "demartini_F_CSV01\\doc\\elenco.csv";
         BufferedReader br = new BufferedReader(new FileReader(fileIn));
-        linea = br.readLine();// salta prima linea
+        br.readLine();
         String[] nomi = new String[2000];
         int[] cntNomi = new int[2000];
         int numNomi = 0; // nomi diversi

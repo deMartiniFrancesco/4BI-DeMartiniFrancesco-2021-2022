@@ -29,7 +29,7 @@ public class Box {
         return matrice;
     }
 
-    public static Box[][] indexValure(Box[][] matrice, int len) {
+    public static void indexValure(Box[][] matrice, int len) {
         int index = 0;
         for (int riga = 0; riga < len; riga++) {
             for (int colonna = 0; colonna < len; colonna++) {
@@ -37,7 +37,6 @@ public class Box {
                 index++;
             }
         }
-        return matrice;
     }
 
     public static void visualMat(Box[][] matrice, int len) {

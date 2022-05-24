@@ -2,21 +2,8 @@ package demartini_F_prova.bin;
 
 // Class Declaration
 
-public class Person {
-    // Instance Variables
-    final String name;
-    final String surname;
-    final int age;
-    final String sex;
-
+public record Person(String name, String surname, int age, String sex) {
     // Constructor Declaration of Class
-    public Person(String name, String surname,
-                  int age, String sex) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.sex = sex;
-    }
 
     public static void main(String[] args) {
         Person p1 = new Person("Bil", "Gates", 50, "male");

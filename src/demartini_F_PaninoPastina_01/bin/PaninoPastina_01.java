@@ -20,13 +20,12 @@ class PaninoPastina_01 {
         int days = 0;
         while (money > 1) {
             switch (input("cosa vuoi mangiare\npastina o panino")) {
-                case "pastina":
+                case "pastina" -> {
                     money -= pastina;
                     days++;
                     System.out.println(money);
-                    break;
-
-                case "panino":
+                }
+                case "panino" -> {
                     if (money > panino) {
                         money -= panino;
                     } else {
@@ -34,12 +33,8 @@ class PaninoPastina_01 {
                     }
                     days++;
                     System.out.println(money);
-
-                    break;
-
-                default:
-                    System.out.println("Non é aquistabile");
-                    break;
+                }
+                default -> System.out.println("Non é aquistabile");
             }
         }
 

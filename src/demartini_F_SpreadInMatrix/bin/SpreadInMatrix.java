@@ -4,18 +4,18 @@ import java.io.File;
 import java.util.*;
 
 class SpreadInMatrix {
-    int lenCampo;
+    final int lenCampo;
 
-    Location startLocation;
-    Location endLocation;
+    final Location startLocation;
+    final Location endLocation;
 
-    Element[][] matrix;
+    final Element[][] matrix;
 
 
-    List<Element> toCheckList = new ArrayList<>();
-    List<Element> checkedList = new ArrayList<>();
+    final List<Element> toCheckList = new ArrayList<>();
+    final List<Element> checkedList = new ArrayList<>();
 
-    List<Element> pathElement = new ArrayList<>();
+    final List<Element> pathElement = new ArrayList<>();
 
 
     public SpreadInMatrix(int lenCampo, Location startLocation, Location endLocation, List<Element> obstacoles) {

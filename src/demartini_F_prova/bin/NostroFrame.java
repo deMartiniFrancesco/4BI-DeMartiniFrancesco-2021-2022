@@ -1,9 +1,11 @@
 package demartini_F_prova.bin;
 
 import javax.swing.*;
+import java.io.Serial;
 
 public class NostroFrame extends JFrame { // Creiamo una sottoclasse di Jframe
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public NostroFrame() { // definiamone un costruttore

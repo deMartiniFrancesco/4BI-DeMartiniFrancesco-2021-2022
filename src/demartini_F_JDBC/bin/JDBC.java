@@ -7,50 +7,50 @@ class JDBC {
     public JDBC() {
     }
 
-    public int insertProdotti(Connection c, String cod, String descr, String prezzo, String scadenza, String qta, String um) throws SQLException {
+    public int insertAlunno(Connection c, String nome, String cognome, String matricola) throws SQLException {
         int r;
-        String insertTableSQL = "INSERT INTO prodotti values (?,?,?,?,?,?)";
-        PreparedStatement ps = c.prepareStatement(insertTableSQL);
-        ps.setString(1, cod);
-        ps.setString(2, descr);
-        ps.setString(3, prezzo);
-        ps.setString(4, scadenza);
-        ps.setString(5, qta);
-        ps.setString(6, um);
+        String insert = "INSERT INTO alunni values (?,?,?)";
+        PreparedStatement ps = c.prepareStatement(insert);
+        ps.setString(1, nome);
+        ps.setString(2, cognome);
+        ps.setString(3, matricola);
+        System.out.println(insert);
         r = ps.executeUpdate();
 
         return r;
     }
 
 
-    public int creaTab(Connection c) throws SQLException {
-        Statement stmt;
-        stmt = c.createStatement();
+    public void creaTab(Connection connection) throws SQLException {
+        Statement statement = connection.createStatement();
         String create = "CREATE TABLE alunni ("
-                + "  name varchar(20) primary key,"
-                + "  eta numeric(30) DEFAULT NULL,"
-                + "  classe numeric (10,4) NOT NULL,"
-                + "  matricola datetime NOT NULL,"
+                + "  name varchar (20) primary key,"
+                + "  cognome varchar (20) NOT NULL,"
+                + "  matricola char (6) NOT NULL"
                 + ") ";
         System.out.println(create);
-        return stmt.executeUpdate(create);
+        statement.executeUpdate(create);
+    }
+
+    public void dropTab(Connection connection) throws SQLException {
+        Statement statement = connection.createStatement();
+        String drop = "DROP TABLE alunni;";
+        System.out.println(drop);
+        statement.executeUpdate(drop);
     }
 
 
-    public void visProdotti(Connection c) throws SQLException {
-        Statement stmt;
-        ResultSet rs;
-        stmt = c.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM prodotti");
+    public void visProdotti(Connection connection) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet result = statement.executeQuery("SELECT * FROM alunni");
 
-        while (rs.next()) {
-            System.out.println(rs.getString("cod")
-                    + "  " + rs.getString("descr") + "  "
-                    + rs.getString("prezzo") + "  " +
-                    rs.getString("qta") + "  " +
-                    rs.getString("scadenza"));
+        while (result.next()) {
+            System.out.printf("Nome %s cognome %s matricola %s%n",
+                    result.getString("nome"),
+                    result.getString("cognome"),
+                    result.getString("matricola"));
         }
-        stmt.close();
+        statement.close();
     }
 
 
@@ -78,17 +78,28 @@ class JDBCTest {
         String resursesPath = "/file/";
 
         Connection conn;
+        JDBC jdbc;
         try {
             conn = DriverManager.getConnection(
                     "jdbc:sqlite:" + projectPath + resursesPath + "magaz.db");
 
-            JDBC jdbc = new JDBC();
-            jdbc.creaTab(conn);
+            jdbc = new JDBC();
+            try {
+                jdbc.creaTab(conn);
+            } catch (SQLException e) {
+                //Gia esisstente;
+            }
+            jdbc.insertAlunno(conn, "Alessandro", "Nicolis", "19383");
 
-
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+
+
+
+
 
     }
 }

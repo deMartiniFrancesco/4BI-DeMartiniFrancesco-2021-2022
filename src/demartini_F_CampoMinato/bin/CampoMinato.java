@@ -9,7 +9,7 @@ import java.util.Random;
 class CampoMinato {
 
     private final int lenCampo = 10;
-    Table<Integer, Integer, Casella> campo = HashBasedTable.create();
+    final Table<Integer, Integer, Casella> campo = HashBasedTable.create();
 
     public CampoMinato(Coordinate safeCoordinate) {
         initCampo();

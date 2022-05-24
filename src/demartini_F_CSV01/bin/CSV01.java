@@ -13,7 +13,7 @@ class CSV01 {
 
     }
 
-    public static HashMap<String, Integer> frequency(HashMap<String, Integer> nomi, String nome) {
+    public static void frequency(HashMap<String, Integer> nomi, String nome) {
 
         boolean isKeyPresent = nomi.containsKey(nome);
         if (isKeyPresent) {
@@ -23,7 +23,6 @@ class CSV01 {
         } else {
             nomi.put(nome, 1);
         }
-        return nomi;
 
     }
 

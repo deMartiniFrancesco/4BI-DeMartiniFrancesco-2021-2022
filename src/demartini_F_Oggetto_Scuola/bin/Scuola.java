@@ -99,16 +99,14 @@ public class Scuola {
         return nonDocentiVect;
     }
 
-    public boolean add(Persona p) {
+    public void add(Persona p) {
         if (vect == null) {
             vect = new Persona[len]; // strategia di allocazione arbitraria
         }
         if (size < vect.length) {
             vect[size] = p;
             size++;
-            return true;
         } else {
-            return false;
         }
     }
 
@@ -158,28 +156,28 @@ public class Scuola {
             System.out.println(fn);
             bw = new BufferedReader(new FileReader(fn));
             String linea;
-            linea = bw.readLine();
+            bw.readLine();
             // int rig = 0;
             while ((linea = bw.readLine()) != null) {
                 String[] campi = linea.split(",");
                 switch (campi[0]) {
-                    case "A":
+                    case "A" -> {
                         Alunno a = new Alunno(campi[1], campi[2], campi[3], campi[4]);
                         add(a);
                         nAlunni++;
-                        break;
-                    case "D":
+                    }
+                    case "D" -> {
                         Docente d = new Docente(campi[1], campi[2], campi[3], campi[4], campi[5]);
                         add(d);
                         nDocenti++;
-                        break;
-                    case "N":
+                    }
+                    case "N" -> {
                         NonDocente nd = new NonDocente(campi[1], campi[2], campi[3], campi[4], campi[5]);
                         add(nd);
                         nNonDocenti++;
-                        break;
-                    default:
-                        break;
+                    }
+                    default -> {
+                    }
                 }
             }
             bw.close();

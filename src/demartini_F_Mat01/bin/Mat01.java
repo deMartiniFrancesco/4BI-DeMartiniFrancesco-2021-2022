@@ -62,14 +62,13 @@ public class Mat01 {
         }
     }
 
-    public static int[][] inizializzMatrice(int[][] matrice, int len) {
+    public static void inizializzMatrice(int[][] matrice, int len) {
         Random numero = new Random();
         for (int i = 0; i < len; i++) {
             for (int j = 0; j < len; j++) {
                 matrice[i][j] = numero.nextInt(99);
             }
         }
-        return matrice;
     }
 
     public static void main(String[] args) {

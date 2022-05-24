@@ -137,7 +137,7 @@ class Test {
         mazzo.shuffle();
 
         System.out.println(mazzo);
-        pause = pauseScanner.nextLine().trim();
+        pauseScanner.nextLine().trim();
         while (!exit) {
             mazzo.pesca();
 

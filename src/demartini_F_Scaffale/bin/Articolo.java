@@ -2,15 +2,7 @@ package demartini_F_Scaffale.bin;
 
 import java.util.Objects;
 
-public class Articolo {
-    private final String titolo;
-    private final String testo;
-
-
-    public Articolo(String titolo, String testo) {
-        this.titolo = titolo;
-        this.testo = testo;
-    }
+public record Articolo(String titolo, String testo) {
 
     public String getTitolo() {
         return titolo;
