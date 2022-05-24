@@ -7,17 +7,14 @@ class JDBC {
     public JDBC() {
     }
 
-    public int insertAlunno(Connection c, String nome, String cognome, String matricola) throws SQLException {
-        int r;
+    public void insertAlunno(Connection c, String nome, String cognome, String matricola) throws SQLException {
         String insert = "INSERT INTO alunni values (?,?,?)";
         PreparedStatement ps = c.prepareStatement(insert);
         ps.setString(1, nome);
         ps.setString(2, cognome);
         ps.setString(3, matricola);
+        ps.executeUpdate();
         System.out.println(insert);
-        r = ps.executeUpdate();
-
-        return r;
     }
 
 
@@ -28,25 +25,25 @@ class JDBC {
                 + "  cognome varchar (20) NOT NULL,"
                 + "  matricola char (6) NOT NULL"
                 + ") ";
-        System.out.println(create);
         statement.executeUpdate(create);
+        System.out.println(create);
     }
 
     public void dropTab(Connection connection) throws SQLException {
         Statement statement = connection.createStatement();
         String drop = "DROP TABLE alunni;";
-        System.out.println(drop);
         statement.executeUpdate(drop);
+        System.out.println(drop);
     }
 
 
-    public void visProdotti(Connection connection) throws SQLException {
+    public void visAlunni(Connection connection) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet result = statement.executeQuery("SELECT * FROM alunni");
 
         while (result.next()) {
-            System.out.printf("Nome %s cognome %s matricola %s%n",
-                    result.getString("nome"),
+            System.out.printf("Nome: %s cognome: %s matricola: %s%n",
+                    result.getString("name"),
                     result.getString("cognome"),
                     result.getString("matricola"));
         }
@@ -89,7 +86,7 @@ class JDBCTest {
             } catch (SQLException e) {
                 //Gia esisstente;
             }
-            jdbc.insertAlunno(conn, "Alessandro", "Nicolis", "19383");
+            jdbc.visAlunni(conn);
 
         } catch (Exception e) {
             e.printStackTrace();
