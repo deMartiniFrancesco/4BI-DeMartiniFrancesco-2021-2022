@@ -4,8 +4,6 @@ import java.io.File;
 import java.sql.*;
 
 class JDBC {
-    public JDBC() {
-    }
 
     public void insertAlunno(Connection c, String nome, String cognome, String matricola) throws SQLException {
         String insert = "INSERT INTO alunni values (?,?,?)";
@@ -75,12 +73,10 @@ class JDBCTest {
         String resursesPath = "/file/";
 
         Connection conn;
-        JDBC jdbc;
+        JDBC jdbc = new JDBC();
         try {
             conn = DriverManager.getConnection(
                     "jdbc:sqlite:" + projectPath + resursesPath + "magaz.db");
-
-            jdbc = new JDBC();
             try {
                 jdbc.creaTab(conn);
             } catch (SQLException e) {
