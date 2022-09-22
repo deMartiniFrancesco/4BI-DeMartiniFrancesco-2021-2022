@@ -13,11 +13,6 @@ public class Dealer {
         return mazzo;
     }
 
-    public void initGame() {
-
-
-    }
-
     @Override
     public String toString() {
         return "Dealer{" +
